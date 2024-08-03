@@ -1,14 +1,9 @@
-'use client'
-
-
+import React, { Suspense } from 'react'
 import { FaHtml5, FaCss3Alt, FaJs, FaGithub, FaCloud, FaReact, FaPython, FaNodeJs } from 'react-icons/fa'
 import { SiTailwindcss, SiNextdotjs, SiClerk, SiPrisma, SiTypescript, SiRedux } from 'react-icons/si'
-import React, { Suspense } from 'react'
 import Badge from './Badge'
 
-
-
-const skills= [
+const skills = [
   { name: 'HTML', icon: FaHtml5, color: '#E34F26' },
   { name: 'CSS', icon: FaCss3Alt, color: '#1572B6' },
   { name: 'JavaScript', icon: FaJs, color: '#F7DF1E' },
@@ -26,41 +21,35 @@ const skills= [
 ]
 
 export default function HomePage() {
-
-
-
   return (
-    <div id='home' className="min-h-screen bg-white  pt-10 relative">
-
-  <div className="absolute top-0 right-0 w-80 h-80 z-10">
+    <div id='home' className="min-h-screen bg-white pt-10 relative overflow-hidden">
+      {/* Badge component */}
+      <div className="w-full h-96 sm:w-96 sm:h-96 sm:absolute sm:top-0 sm:right-0 z-10 mb-8 sm:mb-0">
         <Suspense fallback={null}>
           <Badge />
         </Suspense>
       </div>
-
-
+      
       <div className="container mx-auto px-4 py-8 relative z-0">
-        <div className="flex flex-col md:flex-row md:justify-between mb-8">
-
-          <div data-aos="fade-down" className="md:w-1/2 lg:w-2/4 ">
-            <div className="bg-white  text-black  bg-opacity-80 dark:bg-opacity-80 p-6 rounded-lg  border-2 border-green-500">
-              <p className="text-lg leading-relaxed">
+        <div className="flex flex-col sm:flex-row sm:justify-between mb-8">
+          <div data-aos="fade-down" className="w-full sm:w-1/2 lg:w-2/4 mb-8 sm:mb-0">
+            <div className="bg-white text-black bg-opacity-80 dark:bg-opacity-80 p-6 rounded-lg border-2 border-green-500">
+              <p className="text-base sm:text-lg leading-relaxed">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio, accusamus! Explicabo, veritatis! Ratione, rem! Blanditiis optio et odit esse provident.
               </p>
             </div>
           </div>
         </div>
-
-      
-        <div data-aos="zoom-in" className="w-full max-w-4xl mx-auto p-6 rounded-lg bg-white  bg-opacity-90   border-2 border-green-500">
-          <h2 className="text-2xl text-green-600 font-semibold mb-6 text-center dark:text-green-400">Skills</h2>
-          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-6">
+        
+        <div data-aos="zoom-in" className="w-full max-w-4xl mx-auto p-6 rounded-lg bg-white bg-opacity-90 border-2 border-green-500 mt-8 sm:mt-16">
+          <h2 className="text-xl sm:text-2xl text-green-600 font-semibold mb-6 text-center dark:text-green-400">Skills</h2>
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-4 sm:gap-6">
             {skills.map((skill, index) => (
               <div key={index} className="flex flex-col items-center group">
-                <div className="w-14 h-14 bg-gray-200  rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
-                {React.createElement(skill.icon, { size: 30, color: skill.color })}
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-200 rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+                  {React.createElement(skill.icon, { size: '60%', color: skill.color })}
                 </div>
-                <span className="mt-2 text-sm text-black  group-hover:text-green-500 transition-colors">{skill.name}</span>
+                <span className="mt-2 text-xs sm:text-sm text-black group-hover:text-green-500 transition-colors">{skill.name}</span>
               </div>
             ))}
           </div>
