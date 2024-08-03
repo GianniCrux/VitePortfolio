@@ -6,7 +6,7 @@ import { MeshLineGeometry, MeshLineMaterial } from 'meshline'
 
 extend({ MeshLineGeometry, MeshLineMaterial })
 
-export default function App() {
+export default function Badge() {
   return (
     <Canvas camera={{ position: [0, 0, 13], fov: 25 }}>
       <Physics debug interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>

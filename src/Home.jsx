@@ -3,7 +3,8 @@
 
 import { FaHtml5, FaCss3Alt, FaJs, FaGithub, FaCloud, FaReact, FaPython, FaNodeJs } from 'react-icons/fa'
 import { SiTailwindcss, SiNextdotjs, SiClerk, SiPrisma, SiTypescript, SiRedux } from 'react-icons/si'
-import React from 'react'
+import React, { Suspense } from 'react'
+import Badge from './Badge'
 
 
 
@@ -29,9 +30,16 @@ export default function HomePage() {
 
 
   return (
-    <div id='home' className="min-h-screen bg-white  pt-10">
+    <div id='home' className="min-h-screen bg-white  pt-10 relative">
 
-      <div className="container mx-auto px-4 py-8 relative z-10">
+  <div className="absolute top-0 right-0 w-80 h-80 z-10">
+        <Suspense fallback={null}>
+          <Badge />
+        </Suspense>
+      </div>
+
+
+      <div className="container mx-auto px-4 py-8 relative z-0">
         <div className="flex flex-col md:flex-row md:justify-between mb-8">
 
           <div data-aos="fade-down" className="md:w-1/2 lg:w-2/4 ">
