@@ -8,7 +8,7 @@ import { MeshLineGeometry, MeshLineMaterial } from 'meshline'
 
 extend({ MeshLineGeometry, MeshLineMaterial })
 useGLTF.preload('/gianniBadge2-transformed.glb')
-useTexture.preload('/public/gianni-tag.jpg')
+useTexture.preload('/gianni-tag.jpg')
 
 export default function Badge() {
 
@@ -34,7 +34,7 @@ function Band({ maxSpeed = 50, minSpeed = 10, ...props }) {
   const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3() // prettier-ignore
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 2, linearDamping: 2 }
   const { nodes, materials } = useGLTF('/gianniBadge2-transformed.glb')
-  const texture = useTexture('/public/gianni-tag.jpg')
+  const texture = useTexture('/gianni-tag.jpg')
   const { width, height } = useThree((state) => state.size)
   const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]))
   const [dragged, drag] = useState(false)

@@ -40,7 +40,7 @@ export default function HomePage() {
           </div>
 
           <div className="p-6 rounded-lg bg-white bg-opacity-90 border-2 border-blue-500 mt-8 sm:mt-16">
-            <h2 className="text-xl sm:text-2xl text-blue-600 font-semibold mb-6 text-center dark:text-blue-400">Skills</h2>
+            <h2 className="text-xl sm:text-2xl text-blue-600 font-semibold mb-6 text-center dark:text-blue-600">Skills</h2>
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-4 sm:gap-6">
               {skills.map((skill, index) => (
                 <div key={index} className="flex flex-col items-center group">
