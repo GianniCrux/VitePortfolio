@@ -24,7 +24,7 @@ export default function HomePage() {
   return (
     <div id='home' className="min-h-screen bg-white pt-10 relative overflow-hidden">
       {/* Badge component */}
-      <div className="w-full h-96 sm:w-96 sm:h-96 sm:absolute sm:top-0 sm:right-0 z-10 mb-8 sm:mb-0">
+      <div className="w-full h-80 sm:w-80 sm:h-80 sm:absolute sm:top-0 sm:right-0 z-10 mb-8 sm:mb-0">
         <Suspense fallback={null}>
           <Badge />
         </Suspense>
