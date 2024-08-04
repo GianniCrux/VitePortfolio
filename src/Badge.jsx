@@ -13,7 +13,7 @@ useTexture.preload('/gianni-tag.jpg')
 export default function Badge() {
 
   return (
-    <Canvas style={{ background: 'white' }} camera={{ position: [0, 0, 13], fov: 25 }}>
+    <Canvas style={{ position: 'absolute', width: '100%', height: '100%' }} camera={{ position: [0, 0, 13], fov: 25 }}>
       <ambientLight intensity={Math.PI} />
       <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
         <Band />
