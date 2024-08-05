@@ -9,8 +9,8 @@ const Container = styled.div`
   height: 100%;
   pointer-events: none;
   z-index: 20;
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 0.10em;
+  font-family: 'Lora', serif;
+  letter-spacing: 0.05em;
 `;
 
 const TopLeft = styled.div`
@@ -27,6 +27,7 @@ const BottomLeft = styled.div`
   width: 30ch;
   max-width: 40%;
   pointer-events: auto;
+  font-family: 'Playfair Display', serif;
 `;
 
 const BottomRight = styled.div`
