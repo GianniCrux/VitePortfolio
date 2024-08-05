@@ -78,14 +78,14 @@ export default function Overlay() {
   return (
     <Container>
       <TopLeft>
-        <h1 style={{ fontSize: 'min(14vw, 12em)', lineHeight: '0.85em', margin: '0', fontWeight: '400' }}>
+        <h1 style={{ fontSize: 'min(14vw, 12em)', lineHeight: '0.85em', margin: '0', fontWeight: '400', color: 'blue' }}>
           GIOVANNI
           <br />
           DI STEFANO
         </h1>
-        <p>Web Developer & Designer —</p>
+        <p style={{ color: 'blue' }}>Web Developer & Designer —</p>
       </TopLeft>
-      <BottomLeft>
+      <BottomLeft style={{ color: 'blue' }}>
         Passionate about creating beautiful and functional web experiences
         <SocialIcons>
           <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
@@ -96,7 +96,7 @@ export default function Overlay() {
           </a>
         </SocialIcons>
       </BottomLeft>
-      <BottomRight>
+      <BottomRight style={{ color: 'blue' }}>
         HTML • CSS • JavaScript
         <br />
         React • Next.js • Node.js
