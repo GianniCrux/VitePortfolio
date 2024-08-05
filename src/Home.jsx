@@ -1,7 +1,5 @@
 import { Suspense } from 'react';
 import Badge from './Badge';
-
-import FadeIn from './components/fadeIn';
 import Overlay from './components/overlay';
 
 
@@ -14,7 +12,6 @@ export default function HomePage() {
         </Suspense>
       </div>
       <Overlay />
-      <FadeIn />
     </div>
   );
 }

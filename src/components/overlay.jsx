@@ -9,7 +9,8 @@ const Container = styled.div`
   height: 100%;
   pointer-events: none;
   z-index: 20;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.10em;
 `;
 
 const TopLeft = styled.div`
