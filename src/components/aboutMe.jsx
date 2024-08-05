@@ -1,13 +1,13 @@
 export default function AboutMe() {
     return (
-        <section id="about" className="py-16 bg-white text-black dark:bg-black dark:text-white min-h-screen flex items-center content-center">
+        <section id="about" className="py-16 bg-white text-black  min-h-screen flex items-center content-center">
             <div className="container mx-auto px-4 relative">
 
                 <div className="absolute top-0 left-1/2 bottom-0 w-[2px] bg-black dark:bg-white -translate-x-1/2"></div>
                 
                 <div>
-                    <h2 className="text-3xl text-blue-600 font-bold absolute left-[calc(50%-100px)] top-0 bg-white dark:bg-black tracking-tighter">ABOUT</h2>
-                    <h2 className="text-3xl font-bold text-blue-600 absolute right-[calc(50%-44px)] top-4 bg-white dark:bg-black tracking-tighter">ME</h2>
+                    <h2 className="text-3xl text-blue-600 font-bold absolute left-[calc(50%-100px)] top-0 bg-white  tracking-tighter">ABOUT</h2>
+                    <h2 className="text-3xl font-bold text-blue-600 absolute right-[calc(50%-44px)] top-4 bg-white  tracking-tighter">ME</h2>
                 </div>
                 
                 <div className="flex justify-center pt-16">

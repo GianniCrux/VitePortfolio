@@ -13,7 +13,7 @@ useTexture.preload('/gianni-tag.jpg')
 export default function Badge() {
 
   return (
-    <Canvas style={{ position: 'absolute', width: '100%', height: '100%' }} camera={{ position: [0, 0, 13], fov: 25 }}>
+    <Canvas style={{ position: 'absolute', width: '100%', height: '100%' }} camera={{ position: [1, 0, 13], fov: 25 }}>
       <ambientLight intensity={Math.PI} />
       <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
         <Band />
@@ -85,7 +85,7 @@ function Band({ maxSpeed = 50, minSpeed = 10, ...props }) {
 
   return (
     <>
-      <group position={[0, 4, 0]}>
+      <group position={[5, 4, 0]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
         <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps}>
           <BallCollider args={[0.1]} />
