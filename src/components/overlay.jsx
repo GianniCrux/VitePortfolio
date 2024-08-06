@@ -81,9 +81,9 @@ export default function Overlay() {
     <Container>
       <TopLeft>
         <h1 style={{ fontSize: 'min(14vw, 12em)', lineHeight: '0.85em', margin: '0', fontWeight: '400', color: 'blue' }}>
-          GIOVANNI
+          Giovanni
           <br />
-          DI STEFANO
+          Di Stefano
         </h1>
         <p style={{ color: 'blue' }}>Web Developer & Designer —</p>
       </TopLeft>
