@@ -5,7 +5,7 @@ import { SiNextdotjs, SiTailwindcss, SiTypescript, SiRedux, SiPrisma } from 'rea
 const TechIcon = ({ Icon, name }) => (
   <div className="flex flex-col items-center p-2">
     <Icon className="text-4xl mb-2 text-blue-500" />
-    <span className="text-xs text-white">{name}</span>
+    <span className="text-xs text-white font-lora">{name}</span>
   </div>
 );
 
@@ -36,24 +36,24 @@ export default function AboutMe() {
 
         <div className="absolute hidden md:block top-0 left-1/2 bottom-0 w-[2px] bg-white -translate-x-1/2"></div>
         
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8 space-y-4 md:space-y-0">
-          <h2 className="text-3xl text-blue-600 font-bold tracking-tighter text-center md:text-left">ABOUT ME</h2>
-          <h3 className="hidden md:block text-2xl font-bold text-blue-500 tracking-tighter text-center md:text-right">Technologies I Work With</h3>
+        <div className="flex flex-col md:flex-row justify-evenly items-center mb-8 space-y-4 md:space-y-0">
+          <h2 className="text-3xl text-blue-600 tracking-tighter text-center md:text-left font-playfair">ABOUT ME</h2>
+          <h3 className="hidden md:block text-3xl text-blue-500 tracking-tighter text-center md:text-right font-playfair">TECHNOLOGIES I WORK WITH</h3>
         </div>
         
         <div className="flex flex-col md:flex-row justify-center gap-8">
           <div className="md:w-1/2">
-            <p className="tracking-tighter text-white mb-4">
+            <p className="tracking-tighter text-white mb-4 font-lora">
               I&apos;m a passionate web developer with a keen interest in creating user-friendly and visually appealing websites. With expertise in React, Next.js, and modern web technologies, I strive to build efficient and scalable applications that make a positive impact.
             </p>
-            <p className="tracking-tighter text-white">
+            <p className="tracking-tighter text-white font-lora">
               Besides developing, I love playing video games, film, adventures, and challenges. I enjoy trekking, love animals, and always try to create a good and comfortable environment so everyone can feel at home!
             </p>
           </div>
           
           <div className="md:hidden w-full my-8">
             <div className="h-[2px] bg-white w-full"></div>
-            <h3 className="text-2xl font-bold text-blue-500 tracking-tighter text-center mt-8">Technologies I Work With</h3>
+            <h3 className="text-3xl text-blue-500 tracking-tighter text-center mt-8 font-playfair">Technologies I Work With</h3>
           </div>
           
           <div className="md:w-1/2">

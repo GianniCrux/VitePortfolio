@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { BiLeftArrow } from 'react-icons/bi';
 
 const Container = styled.div`
   position: absolute;
@@ -99,13 +100,7 @@ export default function Overlay() {
         </SocialIcons>
       </BottomLeft>
       <BottomRight style={{ color: 'blue' }}>
-        HTML • CSS • JavaScript
-        <br />
-        React • Next.js • Node.js
-        <br />
-        Tailwind • TypeScript • Redux
-        <br />
-        Python • Prisma • Convex
+    <BiLeftArrow />
       </BottomRight>
       <Hamburger>
         <div />
