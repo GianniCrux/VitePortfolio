@@ -29,12 +29,13 @@ const BottomLeft = styled.div`
   max-width: 40%;
   pointer-events: auto;
   font-family: 'Playfair Display', serif;
+  font-weight: bold;
 `;
 
 const BottomRight = styled.div`
   position: absolute;
   bottom: 5vw;
-  right: 5vw;
+  left: 90vw;
   width: 35ch;
   max-width: 40%;
   line-height: 1em;
