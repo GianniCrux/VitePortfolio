@@ -5,13 +5,11 @@ import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier'
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline'
 
-
 extend({ MeshLineGeometry, MeshLineMaterial })
 useGLTF.preload('/gianniBadge2-transformed.glb')
 useTexture.preload('/gianni-tag.jpg')
 
 export default function Badge() {
-
   return (
     <Canvas style={{ position: 'absolute', width: '100%', height: '100%' }} camera={{ position: [1, 0, 13], fov: 25 }}>
       <ambientLight intensity={Math.PI} />
@@ -19,7 +17,7 @@ export default function Badge() {
         <Band />
       </Physics>
       <Environment background blur={0.75}>
-      <color attach="background" args={['black']} />
+        <color attach="background" args={['black']} />
         <Lightformer intensity={2} color="white" position={[0, -1, 5]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
         <Lightformer intensity={3} color="white" position={[-1, -1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
         <Lightformer intensity={3} color="white" position={[1, 1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
@@ -29,10 +27,9 @@ export default function Badge() {
   )
 }
 
-
 function Band({ maxSpeed = 50, minSpeed = 10, ...props }) {
-  const band = useRef(), fixed = useRef(), j1 = useRef(), j2 = useRef(), j3 = useRef(), card = useRef() // prettier-ignore
-  const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3() // prettier-ignore
+  const band = useRef(), fixed = useRef(), j1 = useRef(), j2 = useRef(), j3 = useRef(), card = useRef()
+  const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3()
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 2, linearDamping: 2 }
   const { nodes, materials } = useGLTF('/gianniBadge2-transformed.glb')
   const texture = useTexture('/gianni-tag.jpg')
@@ -41,10 +38,13 @@ function Band({ maxSpeed = 50, minSpeed = 10, ...props }) {
   const [dragged, drag] = useState(false)
   const [hovered, hover] = useState(false)
 
-  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]) // prettier-ignore
-  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]) // prettier-ignore
-  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]) // prettier-ignore
-  useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.45, 0]]) // prettier-ignore
+  // Calculate horizontal position based on screen width
+  const horizontalPosition = width > 768 ? 4.50 : 2.00
+
+  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1])
+  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1])
+  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1])
+  useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.45, 0]])
 
   useEffect(() => {
     if (hovered) {
@@ -86,7 +86,7 @@ function Band({ maxSpeed = 50, minSpeed = 10, ...props }) {
 
   return (
     <>
-      <group position={[5, 4, 0]}>
+      <group position={[horizontalPosition, 4, 0]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
         <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps}>
           <BallCollider args={[0.1]} />
@@ -106,11 +106,11 @@ function Band({ maxSpeed = 50, minSpeed = 10, ...props }) {
             onPointerOut={() => hover(false)}
             onPointerUp={(e) => (e.target.releasePointerCapture(e.pointerId), drag(false))}
             onPointerDown={(e) => (e.target.setPointerCapture(e.pointerId), drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation()))))}>
-      <mesh geometry={nodes.card.geometry} material={materials['base.005']} />
-      <mesh geometry={nodes.clip.geometry} material={materials['metal.005']} />
-      <mesh geometry={nodes.Text.geometry} material={materials['Material.003']} position={[-0.301, 0.217, 0.04]} rotation={[1.654, -0.001, 0.006]} scale={0.123} />
-      <mesh geometry={nodes.IMG_20240706_195900433_MF_PORTRAITTagliataNoSfondo.geometry} material={materials.IMG_20240706_195900433_MF_PORTRAITTagliataNoSfondo} position={[-0.005, 0.652, 0.044]} rotation={[1.537, 0.005, -0.025]} scale={0.644} />
-    </group>
+            <mesh geometry={nodes.card.geometry} material={materials['base.005']} />
+            <mesh geometry={nodes.clip.geometry} material={materials['metal.005']} />
+            <mesh geometry={nodes.Text.geometry} material={materials['Material.003']} position={[-0.301, 0.217, 0.04]} rotation={[1.654, -0.001, 0.006]} scale={0.123} />
+            <mesh geometry={nodes.IMG_20240706_195900433_MF_PORTRAITTagliataNoSfondo.geometry} material={materials.IMG_20240706_195900433_MF_PORTRAITTagliataNoSfondo} position={[-0.005, 0.652, 0.044]} rotation={[1.537, 0.005, -0.025]} scale={0.644} />
+          </group>
         </RigidBody>
       </group>
       <mesh ref={band}>
