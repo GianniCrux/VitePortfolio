@@ -10,6 +10,22 @@ useGLTF.preload('/gianniBadge2-transformed.glb')
 useTexture.preload('/gianni-tag.jpg')
 
 export default function Badge() {
+  useEffect(() => {
+    let resizeTimer;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        window.location.reload();
+      }, 250); // Debounce for 250ms
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <Canvas style={{ position: 'absolute', width: '100%', height: '100%' }} camera={{ position: [1, 0, 13], fov: 25 }}>
       <ambientLight intensity={Math.PI} />
