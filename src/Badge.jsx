@@ -55,7 +55,7 @@ function Band({ maxSpeed = 50, minSpeed = 10, ...props }) {
   const [hovered, hover] = useState(false)
 
   // Calculate horizontal position based on screen width
-  const horizontalPosition = width > 768 ? 4.50 : 2.00
+  const horizontalPosition = width > 768 ? 3.70 : 1.90
 
   useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1])
   useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1])
