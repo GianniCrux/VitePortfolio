@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs, FaPython, FaCloud } from 'react-icons/fa';
 import { SiNextdotjs, SiTailwindcss, SiTypescript, SiRedux, SiPrisma } from 'react-icons/si';
@@ -44,7 +43,7 @@ export default function AboutMe() {
         <div className="flex flex-col lg:flex-row justify-center gap-8">
           <div className="lg:w-1/2 max-w-2xl mx-auto lg:mx-0">
             <p className="tracking-tighter text-white mb-4 font-lora text-sm md:text-base">
-              I'm a passionate web developer with a keen interest in creating user-friendly and visually appealing websites. With expertise in React, Next.js, and modern web technologies, I strive to build efficient and scalable applications that make a positive impact.
+              I&apos;m a passionate web developer with a keen interest in creating user-friendly and visually appealing websites. With expertise in React, Next.js, and modern web technologies, I strive to build efficient and scalable applications that make a positive impact.
             </p>
             <p className="tracking-tighter text-white font-lora text-sm md:text-base">
               Besides developing, I love playing video games, film, adventures, and challenges. I enjoy trekking, love animals, and always try to create a good and comfortable environment so everyone can feel at home!
