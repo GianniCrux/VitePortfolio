@@ -77,7 +77,7 @@ const ContactMe = () => {
                 type="text"
                 id="name"
                 name="from_name"
-                className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-800"
+                className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-black"
                 required
               />
             </div>
@@ -94,7 +94,7 @@ const ContactMe = () => {
                 type="email"
                 id="email"
                 name="reply_to"
-                className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-800"
+                className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-black"
                 required
               />
             </div>
@@ -109,7 +109,7 @@ const ContactMe = () => {
               <textarea
                 id="message"
                 name="message"
-                className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-800"
+                className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-black"
                 rows={4}
                 required
               ></textarea>
