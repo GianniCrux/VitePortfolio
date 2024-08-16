@@ -18,14 +18,14 @@ const projects = [
   {
     title: 'GPlanner',
     description: 'Plan scheduling app',
-    previewImage: '/moonbg.jpg',
-    imageUrl: '/planner-screen.png',
+    previewImage: '/gplanner-screen.png',
+    imageUrl: '/gplanner-screen.png',
     link: 'https://project2.com',
   },
   {
     title: 'Highwaytodev',
     description: 'Cars dodging mini-game',
-    previewImage: '/moonbg.jpg',
+    previewImage: '/highway-screen.png',
     imageUrl: '/highway-screen.png', 
     link: 'https://project2.com',
   },
