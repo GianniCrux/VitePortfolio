@@ -2,6 +2,8 @@ import { Suspense } from 'react'
 import HomePage from './Home'
 import AboutMe from './components/aboutMe'
 import Projects from './components/projects'
+import ContactMe from './components/contact-me'
+
 
 export default function App() {
   return (
@@ -11,6 +13,7 @@ export default function App() {
       </Suspense>
       <AboutMe />
       <Projects />
+      <ContactMe />
     </>
   )
 }
