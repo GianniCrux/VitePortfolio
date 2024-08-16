@@ -1,8 +1,8 @@
-import { Calendly } from "../_components/calendly";
+
 
 const ContactMe = () => {
     return (
-      <div id="contact" className="w-full mx-auto p-6 bg-black text-white shadow-lg">
+      <div id="contact" className="w-full mx-auto p-6 bg-black text-white shadow-lg min-h-screen">
         <h2 data-aos="fade-up" className="text-3xl font-bold mb-6">Contact Me</h2>
   
         <div className="gap-8">
@@ -81,10 +81,10 @@ const ContactMe = () => {
                 Send Message
               </button>
             </form>
-            <Calendly />
           </div>
         </div>
       </div>
+    
     );
   };
   

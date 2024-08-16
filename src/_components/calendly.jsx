@@ -21,7 +21,7 @@ export const Calendly = () => {
     }, [])
 
     return (
-        <div className="gap-8 bg-black py-4 mt-6">
+        <div className="gap-8 bg-black py-4 min-h-screen">
             <h3 data-aos="slide-up" className="text-3xl font-semibold text-blue-600 text-center">
                 Schedule a Call
             </h3>
