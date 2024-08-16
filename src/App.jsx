@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import HomePage from './Home'
 import AboutMe from './components/aboutMe'
+import Projects from './components/projects'
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
         <HomePage />
       </Suspense>
       <AboutMe />
+      <Projects />
     </>
   )
 }
