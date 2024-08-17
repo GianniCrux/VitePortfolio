@@ -10,14 +10,14 @@ const projects = [
   },
   {
     title: 'Floating Lemons',
-    description: 'Simple landing page created to practice with 3D object and learn about three.js and animation.',
+    description: 'Floating Lemons is an interactive landing page that showcases floating 3D objects and animations. Built with React Three Fiber and Three.js, this project leverages libraries like "@react-three/drei" for 3D components and "styled-components" for styling. The page is designed to explore 3D environments and animations, inspired by sites like playful.software and bananas.vercel.app. ',
     previewImage: '/lemons-screen.png',
     imageUrl: '/lemons.png', 
     link: 'https://floatinglemons.vercel.app/',
   },
   {
     title: 'GPlanner',
-    description: 'Plan scheduling app',
+    description: 'GPlanner is an advanced plan scheduling application designed with React, Next.js, and Tailwind CSS. It offers an interactive calendar experience using "react-big-calendar". The app integrates "clerk-react" for seamless authentication while data management and serverless data operations are supported by Convex. The setup includes robust support for development, building, and linting  to ensure a seamless development experience.',
     previewImage: '/gplanner-screen.png',
     imageUrl: '/gplanner-screen.png',
     link: 'https://project2.com',
