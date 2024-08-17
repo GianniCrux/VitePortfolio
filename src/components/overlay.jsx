@@ -74,7 +74,7 @@ const SocialIcons = styled.div`
     pointer-events: auto;
 
     &:hover {
-      color: #0070f3;
+      color: #1565C0;
     }
   }
 `;
