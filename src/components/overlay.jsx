@@ -45,22 +45,6 @@ const BottomRight = styled.div`
   pointer-events: auto;
 `;
 
-const Hamburger = styled.div`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  top: 5vw;
-  right: 5vw;
-  pointer-events: auto;
-  cursor: pointer;
-
-  & > div {
-    width: 24px;
-    height: 2px;
-    background: #252525;
-    margin-bottom: 6px;
-  }
-`;
 
 const SocialIcons = styled.div`
   display: flex;
@@ -79,7 +63,12 @@ const SocialIcons = styled.div`
   }
 `;
 
+
+
+
 export default function Overlay() {
+
+
   return (
     <Container>
       <TopLeft>
@@ -102,13 +91,8 @@ export default function Overlay() {
         </SocialIcons>
       </BottomLeft>
       <BottomRight style={{ color: 'blue' }}>
-    <BiLeftArrow />
+        <BiLeftArrow />
       </BottomRight>
-      <Hamburger>
-        <div />
-        <div />
-        <div />
-      </Hamburger>
     </Container>
   );
 }
