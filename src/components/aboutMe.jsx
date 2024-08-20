@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs, FaPython, FaCloud } from 'react-icons/fa';
+import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs, FaPython, FaCloud, FaCube } from 'react-icons/fa';
 import { SiNextdotjs, SiTailwindcss, SiTypescript, SiRedux, SiPrisma } from 'react-icons/si';
+import { GiCubes } from 'react-icons/gi';
 
 const TechIcon = ({ Icon, name }) => (
   <div className="flex flex-col items-center p-2">
@@ -28,6 +29,8 @@ export default function AboutMe() {
     { Icon: FaPython, name: 'Python' },
     { Icon: SiPrisma, name: 'Prisma' },
     { Icon: FaCloud, name: 'Convex' },
+    { Icon: FaCube, name: 'React Three Fiber' },
+    { Icon: GiCubes, name: 'Three.js' },
   ];
 
   return (
