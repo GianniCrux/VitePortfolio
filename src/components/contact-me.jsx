@@ -1,35 +1,61 @@
 import emailjs from 'emailjs-com';
+import { toast, Toaster } from 'sonner';
 
 const ContactMe = () => {
-
-    
   const sendEmail = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     const formData = new FormData(e.target);
     for (let [key, value] of formData.entries()) {
       console.log(`${key}: ${value}`); // Check form data
     }
 
-    emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID, 
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
-        e.target, 
-        import.meta.env.VITE_EMAILJS_USER_ID,
-    )
-      .then((result) => {
-        console.log(result.text); // Log the result for debugging
-        alert('Message Sent!'); // Alert the user
-      }, (error) => {
-        console.log(error.text); // Log any errors for debugging
-        alert('Message failed to send. Please try again.'); // Alert the user of failure
-      });
-    
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        e.target,
+        import.meta.env.VITE_EMAILJS_USER_ID
+      )
+      .then(
+        (result) => {
+          console.log(result.text); // Log the result for debugging
+          toast.success('Message Sent!', {
+            position: 'bottom-center',
+            duration: 5000,
+            style: {
+              background: '#4CAF50',
+              color: 'white',
+              padding: '16px 24px',
+              fontSize: '16px',
+              fontWeight: 'bold',
+              borderRadius: '8px',
+            },
+          });
+        },
+        (error) => {
+          console.log(error.text); // Log any errors for debugging
+          toast.error('Message failed to send. Please try again.', {
+            position: 'bottom-center',
+            duration: 5000,
+            style: {
+              background: '#F44336',
+              color: 'white',
+              padding: '16px 24px',
+              fontSize: '16px',
+              fontWeight: 'bold',
+              borderRadius: '8px',
+            },
+          });
+        }
+      );
+
     e.target.reset(); // Clear form fields after submission
   };
 
   return (
-    <div id="contact" className="w-full mx-auto p-6 bg-black text-white shadow-lg min-h-screen">
+    <div id="contact" className="w-full mx-auto p-6 bg-black text-blue-600 shadow-lg min-h-screen">
+      <Toaster />
       <h2 data-aos="fade-up" className="text-3xl font-bold mb-6">Contact Me</h2>
       <div className="gap-8">
         <div className='pt-3'>
