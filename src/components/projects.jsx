@@ -7,6 +7,7 @@ const projects = [
     previewImage: '/logo-sticks.svg',
     imageUrl: '/sticks-screen.png', 
     link: 'https://sticks-gamma.vercel.app/',
+    passkey: 'testuser: mario+clerk_test@example.com password: 12345678'
   },
   {
     title: 'Floating Lemons',
@@ -33,10 +34,10 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="min-h-screen bg-black text-white py-8">
+    <section id="projects" className="min-h-screen bg-black text-white py-8 font-lora">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8 text-blue-600">Projects</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+        <h2 className="text-3xl font text-center mb-8 text-blue-600">PROJECTS</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-16 justify-items-center">
           {projects.map((project, index) => (
             <Project
               key={index}
@@ -45,6 +46,7 @@ export default function Projects() {
               imageUrl={project.imageUrl} 
               link={project.link}
               previewImage={project.previewImage} 
+              passkey={project.passkey}
             />
           ))}
         </div>
