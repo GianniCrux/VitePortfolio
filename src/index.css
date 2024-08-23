@@ -21,3 +21,17 @@ html, body, #root {
   -ms-overflow-style: none;  
   scrollbar-width: none;  
 }
+
+
+@keyframes carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50%));
+  }
+}
+
+.animate-carousel {
+  animation: carousel var(--animation-duration, 40s) linear infinite;
+}

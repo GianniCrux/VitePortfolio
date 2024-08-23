@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs, FaPython, FaCloud, FaCube } from 'react-icons/fa';
 import { SiNextdotjs, SiTailwindcss, SiTypescript, SiRedux, SiPrisma } from 'react-icons/si';
 import { GiCubes } from 'react-icons/gi';
+import { useRef, useEffect } from 'react';
 
 const TechIcon = ({ Icon, name }) => (
-  <div className="flex flex-col items-center p-2">
+  <div className="flex flex-col items-center p-2 w-24 flex-shrink-0">
     <Icon className="text-2xl md:text-3xl lg:text-4xl mb-1 md:mb-2 text-blue-500" />
     <span className="text-xs md:text-sm text-white font-lora">{name}</span>
   </div>
@@ -33,18 +34,25 @@ export default function AboutMe() {
     { Icon: GiCubes, name: 'Three.js' },
   ];
 
+  const carouselRef = useRef(null);
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (carousel) {
+      const scrollWidth = carousel.scrollWidth;
+      const animationDuration = scrollWidth / 50; // Adjust speed as needed
+
+      carousel.style.setProperty('--scroll-width', `${scrollWidth / 2}px`);
+      carousel.style.setProperty('--animation-duration', `${animationDuration}s`);
+    }
+  }, []);
+
   return (
-    <section id="about" className="py-10 bg-black text-black min-h-screen flex items-center">
+    <section id="about" className="py-10 bg-black text-black min-h-screen flex flex-col items-center justify-center">
       <div className="container mx-auto px-4 relative">
-        <div className="absolute hidden lg:block top-0 left-1/2 bottom-0 w-px bg-white"></div>
-        
-        <div className="flex flex-col lg:flex-row justify-between items-center mb-8 space-y-4 lg:space-y-0">
-          <h2 className="text-2xl md:text-3xl text-blue-600 tracking-tighter text-center lg:text-left font-playfair">ABOUT ME</h2>
-          <h3 className="hidden lg:block text-2xl md:text-3xl text-blue-500 tracking-tighter text-center lg:text-right font-playfair">TECHNOLOGIES I WORK WITH</h3>
-        </div>
-        
-        <div className="flex flex-col lg:flex-row justify-center gap-8">
-          <div className="lg:w-1/2 max-w-2xl mx-auto lg:mx-0">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl text-blue-600 tracking-tighter font-playfair mb-6">ABOUT ME</h2>
+          <div className="max-w-2xl mx-auto">
             <p className="tracking-tighter text-white mb-4 font-lora text-sm md:text-base">
               I&apos;m a passionate web developer with a keen interest in creating user-friendly and visually appealing websites. With expertise in React, Next.js, and modern web technologies, I strive to build efficient and scalable applications that make a positive impact.
             </p>
@@ -52,15 +60,16 @@ export default function AboutMe() {
               Besides developing, I love playing video games, film, adventures, and challenges. I enjoy trekking, love animals, and always try to create a good and comfortable environment so everyone can feel at home!
             </p>
           </div>
-          
-          <div className="lg:hidden w-full my-8">
-            <div className="h-px bg-white w-full"></div>
-            <h3 className="text-2xl md:text-3xl text-blue-500 tracking-tighter text-center mt-8 font-playfair">Technologies I Work With</h3>
-          </div>
-          
-          <div className="lg:w-1/2 max-w-2xl mx-auto lg:mx-0">
-            <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 md:gap-4">
-              {technologies.map((tech, index) => (
+        </div>
+        
+        <div className="mt-16">
+          <h3 className="text-2xl md:text-3xl text-blue-500 tracking-tighter text-center font-playfair mb-8">TECHNOLOGIES I WORK WITH</h3>
+          <div className="overflow-hidden bg-gray-900 bg-opacity-50 rounded-lg p-4">
+            <div 
+              ref={carouselRef}
+              className="flex animate-carousel"
+            >
+              {[...technologies, ...technologies, ...technologies, ...technologies].map((tech, index) => (
                 <TechIcon key={index} Icon={tech.Icon} name={tech.name} />
               ))}
             </div>

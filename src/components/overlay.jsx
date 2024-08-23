@@ -45,7 +45,6 @@ const BottomRight = styled.div`
   pointer-events: auto;
 `;
 
-
 const SocialIcons = styled.div`
   display: flex;
   gap: 1rem;
@@ -63,23 +62,29 @@ const SocialIcons = styled.div`
   }
 `;
 
-
-
+const Heading = styled.h1`
+  font-size: min(8vw, 6em);
+  line-height: 1.2;
+  margin: 0;
+  font-weight: 700;
+  color: #1565C0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+`;
 
 export default function Overlay() {
-
-
   return (
     <Container>
       <TopLeft>
-        <h1 style={{ fontSize: 'min(14vw, 12em)', lineHeight: '0.85em', margin: '0', fontWeight: '400', color: 'blue' }}>
-          Giovanni
+      <p style={{ color: '#1565C0' }}>Full Stack —</p>
+        <Heading>
+          Software <br /> Developer,
           <br />
-          Di Stefano
-        </h1>
-        <p style={{ color: 'blue' }}>Web Developer & Designer —</p>
+          Designer
+        </Heading>
       </TopLeft>
-      <BottomLeft style={{ color: 'blue' }}>
+      <BottomLeft style={{ color: '#1565C0' }}>
         Passionate about creating beautiful and functional web experiences
         <SocialIcons>
           <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
@@ -90,7 +95,7 @@ export default function Overlay() {
           </a>
         </SocialIcons>
       </BottomLeft>
-      <BottomRight style={{ color: 'blue' }}>
+      <BottomRight style={{ color: '#1565C0' }}>
         <BiLeftArrow />
       </BottomRight>
     </Container>
