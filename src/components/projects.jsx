@@ -7,11 +7,12 @@ const projects = [
     previewImage: '/logo-sticks.svg',
     imageUrl: '/sticks-screen.png', 
     link: 'https://sticks-gamma.vercel.app/',
-    passkey: 'testuser: mario+clerk_test@example.com password: 12345678'
+    passkey: `testuser1: mario+clerk_test@example.com password: 12345678
+testuser2: marzia+clerk_test@example.com password: 12345678`
   },
   {
     title: 'Floating Lemons',
-    description: 'Floating Lemons is an interactive landing page that showcases floating 3D objects and animations. Built with React Three Fiber and Three.js, this project leverages libraries like "@react-three/drei" for 3D components and "styled-components" for styling. The page is designed to explore 3D environments and animations, inspired by sites like playful.software and bananas.vercel.app. ',
+    description: 'Floating Lemons is a landing page featuring interactive floating 3D objects and animations, built with React Three Fiber and Three.js. It offers an immersive exploration of 3D environments.',
     previewImage: '/lemons-screen.png',
     imageUrl: '/lemons.png', 
     link: 'https://floatinglemons.vercel.app/',
@@ -34,10 +35,10 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="min-h-screen bg-black text-white py-8 font-lora">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font text-center mb-8 text-blue-600">PROJECTS</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-16 justify-items-center">
+    <section id="projects" className="min-h-screen bg-black text-white py-16 font-lora">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <h2 className="text-3xl font-bold text-center mb-12 text-blue-600">PROJECTS</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <Project
               key={index}
