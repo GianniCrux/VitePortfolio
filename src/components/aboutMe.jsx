@@ -5,8 +5,8 @@ import { GiCubes } from 'react-icons/gi';
 import { useRef, useEffect } from 'react';
 
 const TechIcon = ({ Icon, name }) => (
-  <div className="flex flex-col items-center p-2 w-24 flex-shrink-0">
-    <Icon className="text-2xl md:text-3xl lg:text-4xl mb-1 md:mb-2 text-blue-500" />
+  <div className="flex flex-col items-center p-2 w-20 flex-shrink-0">
+    <Icon className="text-xl md:text-2xl lg:text-3xl mb-1 text-blue-500" />
     <span className="text-xs md:text-sm text-white font-lora">{name}</span>
   </div>
 );
@@ -40,19 +40,19 @@ export default function AboutMe() {
     const carousel = carouselRef.current;
     if (carousel) {
       const scrollWidth = carousel.scrollWidth;
-      const animationDuration = scrollWidth / 50; // Adjust speed as needed
+      const animationDuration = scrollWidth / 100;
 
-      carousel.style.setProperty('--scroll-width', `${scrollWidth / 2}px`);
+      carousel.style.setProperty('--scroll-width', `${scrollWidth}px`);
       carousel.style.setProperty('--animation-duration', `${animationDuration}s`);
     }
   }, []);
 
   return (
     <section id="about" className="py-10 bg-black text-black min-h-screen flex flex-col items-center justify-center">
-      <div className="container mx-auto px-4 relative">
+      <div className="container mx-auto px-4 relative max-w-3xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl text-blue-600 tracking-tighter font-playfair mb-6">ABOUT ME</h2>
-          <div className="max-w-2xl mx-auto">
+          <div>
             <p className="tracking-tighter text-white mb-4 font-lora text-sm md:text-base">
               I&apos;m a passionate web developer with a keen interest in creating user-friendly and visually appealing websites. With expertise in React, Next.js, and modern web technologies, I strive to build efficient and scalable applications that make a positive impact.
             </p>
@@ -68,8 +68,11 @@ export default function AboutMe() {
             <div 
               ref={carouselRef}
               className="flex animate-carousel"
+              style={{
+                animation: 'carousel var(--animation-duration) linear infinite',
+              }}
             >
-              {[...technologies, ...technologies, ...technologies, ...technologies].map((tech, index) => (
+              {[...technologies, ...technologies].map((tech, index) => (
                 <TechIcon key={index} Icon={tech.Icon} name={tech.name} />
               ))}
             </div>
