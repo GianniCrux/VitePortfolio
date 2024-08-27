@@ -20,6 +20,10 @@ const TopLeft = styled.div`
   left: 5vw;
   pointer-events: auto;
   font-family: 'Playfair Display', serif;
+
+  @media (max-width: 768px) {
+    padding-top: 6vw;
+  }
 `;
 
 const BottomLeft = styled.div`

@@ -1,16 +1,49 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
 
+const NavbarContainer = styled.nav`
+  background-color: #000000;
+  padding: 0.75rem 4vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const NavLinks = styled.div`
+  display: none;
+
+  @media (min-width: 568px) {
+    display: flex;
+    gap: 2rem;
+  }
+
+  a {
+    color: #1565C0;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #FFFFFF;
+    }
+  }
+`;
+
 const HamburgerContainer = styled.div`
-  position: absolute;
   display: flex;
   flex-direction: column;
-  top: 5vw;
-  right: 5vw;
-  pointer-events: auto;
   cursor: pointer;
   z-index: 30;
+
+  @media (min-width: 568px) {
+    display: none;
+  }
 
   & > div {
     width: 24px;
@@ -20,19 +53,23 @@ const HamburgerContainer = styled.div`
   }
 `;
 
+
 const Sidebar = styled.div`
   position: fixed;
   top: 0;
   right: ${({ isOpen }) => (isOpen ? '0' : '-300px')};
   width: 300px;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.9);
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
   transition: right 0.3s ease-in-out;
   z-index: 35;
   padding: 2rem;
   pointer-events: auto;
+
+  @media (min-width: 568px) {
+    display: none;
+  }
 `;
 
 const Overlay = styled.div`
@@ -46,6 +83,10 @@ const Overlay = styled.div`
   transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
   z-index: 20;
   pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
+
+  @media (min-width: 568px) {
+    display: none;
+  }
 `;
 
 const CloseButton = styled.button`
@@ -56,28 +97,43 @@ const CloseButton = styled.button`
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+  color: #1565C0;
 `;
 
-const NavLinks = styled.nav`
+const SidebarLinks = styled.nav`
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-top: 3rem;
 
   a {
-    color: blue;
+    color: #1565C0;
     text-decoration: none;
     font-size: 1.2rem;
     transition: color 0.3s ease;
 
     &:hover {
-      color: #002060;
+      color: #FFFFFF;
     }
   }
 `;
 
-export default function HamburgerMenu() {
+export default function Navigation() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 568);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -89,26 +145,40 @@ export default function HamburgerMenu() {
 
   return (
     <>
-      <HamburgerContainer onClick={toggleSidebar}>
-        <div />
-        <div />
-        <div />
-      </HamburgerContainer>
-      
-      {/* Overlay that blurs the background */}
-      <Overlay isOpen={isSidebarOpen} onClick={closeSidebar} />
-
-      <Sidebar isOpen={isSidebarOpen}>
-        <CloseButton onClick={toggleSidebar}>
-          <AiOutlineClose />
-        </CloseButton>
-        <NavLinks>
-          <a href="#home" onClick={toggleSidebar}>Home</a>
-          <a href="#about" onClick={toggleSidebar}>About</a>
-          <a href="#projects" onClick={toggleSidebar}>Projects</a>
-          <a href="#contact" onClick={toggleSidebar}>Contact</a>
+      <NavbarContainer>
+        <div style={{ color: '#1565C0', fontSize: '1.5rem', fontWeight: 'bold', fontFamily: 'Lora' }}>Gianni.dev</div>
+        <NavLinks className='font-lora'>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
         </NavLinks>
-      </Sidebar>
+        {isMobile && (
+          <HamburgerContainer onClick={toggleSidebar}>
+            <div />
+            <div />
+            <div />
+          </HamburgerContainer>
+        )}
+      </NavbarContainer>
+
+      {isMobile && (
+        <>
+          <Overlay isOpen={isSidebarOpen} onClick={closeSidebar} />
+
+          <Sidebar isOpen={isSidebarOpen}>
+            <CloseButton onClick={closeSidebar}>
+              <AiOutlineClose />
+            </CloseButton>
+            <SidebarLinks>
+              <a href="#home" onClick={closeSidebar}>Home</a>
+              <a href="#about" onClick={closeSidebar}>About</a>
+              <a href="#projects" onClick={closeSidebar}>Projects</a>
+              <a href="#contact" onClick={closeSidebar}>Contact</a>
+            </SidebarLinks>
+          </Sidebar>
+        </>
+      )}
     </>
   );
 }

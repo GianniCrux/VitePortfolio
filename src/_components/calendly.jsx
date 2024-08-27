@@ -22,12 +22,11 @@ export const Calendly = () => {
 
     return (
         <div className="gap-8 bg-black py-4 min-h-screen font-lora">
-            <h3 data-aos="slide-up" className="text-3xl font-semibold text-blue-600 text-center">
+            <h3 className="text-3xl font-semibold text-blue-600 text-center">
                 Schedule a Call
             </h3>
             <div style={{ position: 'relative', minHeight: '650px' }}>
                 <InlineWidget
-                    data-aos="zoom-up"
                     url="https://calendly.com/gianni-disti"
                     styles={{ 
                         height: '100%',
