@@ -51,7 +51,7 @@ export default function AboutMe() {
     <section id="about" className="py-10 bg-black text-black min-h-screen flex flex-col items-center justify-center">
       <div className="container mx-auto px-4 relative max-w-3xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl text-amber-600 tracking-tighter font-playfair mb-6">ABOUT ME</h2>
+          <h2 className="text-3xl md:text-4xl text-amber-600 tracking-tighter font-playfair mb-6">About me</h2>
           <div>
             <p className="tracking-tighter text-white mb-4 font-lora text-sm md:text-base">
               I&apos;m a passionate web developer with a keen interest in creating user-friendly and visually appealing websites. With expertise in React, Next.js, and modern web technologies, I strive to build efficient and scalable applications that make a positive impact.
@@ -63,7 +63,7 @@ export default function AboutMe() {
         </div>
         
         <div className="mt-16">
-          <h3 className="text-2xl md:text-3xl text-amber-500 tracking-tighter text-center font-playfair mb-8">TECHNOLOGIES I WORK WITH</h3>
+          <h3 className="text-2xl md:text-3xl text-amber-500 tracking-tighter text-center font-playfair mb-8">Technologies i work with</h3>
           <div className="overflow-hidden bg-gray-900 bg-opacity-50 rounded-lg p-4">
             <div 
               ref={carouselRef}

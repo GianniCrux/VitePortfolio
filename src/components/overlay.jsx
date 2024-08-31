@@ -83,9 +83,8 @@ export default function Overlay() {
       <TopLeft>
       <p style={{ color: '#FFBF00' }}>Full Stack —</p>
         <Heading>
-          Software <br /> Developer,
+          Software <br /> Developer
           <br />
-          Designer
         </Heading>
       </TopLeft>
       <BottomLeft style={{ color: '#FFBF00' }}>

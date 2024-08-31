@@ -57,10 +57,10 @@ const ContactMe = () => {
     <section id="contact" className="py-16 bg-black text-amber-600 font-lora">
       <Toaster />
       <div className="container mx-auto px-4 max-w-4xl">
-        <h2 data-aos="fade-up" className="text-3xl font-bold mb-8 text-center">CONTACT ME</h2>
+        <h2 className="text-3xl font-bold mb-8 text-center">Send a message</h2>
         
         <div className="grid md:grid-cols-2 gap-8">
-          <div data-aos="fade-right">
+          <div>
             <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
             <p className="mb-6 text-white">Feel free to reach out through any of these channels:</p>
             <div className='flex flex-wrap gap-4 mb-8'>
@@ -89,8 +89,8 @@ const ContactMe = () => {
             </div>
           </div>
 
-          <div data-aos="fade-left">
-            <h3 className="text-xl font-semibold mb-4">Send a Message</h3>
+          <div>
+
             <form onSubmit={sendEmail} className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-1">Your Name</label>

@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 
 const Project = ({ title, description, imageUrl, link, previewImage, passkey }) => {
   return (
-    <div className="relative bg-yellow-100 group overflow-hidden border border-amber-400 rounded-lg shadow-md w-full h-[250px] transition-all duration-300 hover:shadow-lg hover:border-amber-500">
+    <div className="relative bg-white group overflow-hidden border border-amber-400 rounded-lg shadow-md w-full h-[250px] transition-all duration-300 hover:shadow-lg hover:border-amber-500">
       <a href={link} target="_blank" rel="noopener noreferrer" className="block p-4 h-full">
-        <h3 className="text-lg font-light mb-2 text-amber-600">{title}</h3>
+        <h3 className="text-2xl font-light mb-2 text-amber-600">{title}</h3>
         <div className="relative w-full h-24 mb-4">
           <img 
             src={previewImage} 
