@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
 
 const NavbarContainer = styled.nav`
-  background-color: #000000;
+  background-color: #0e0e0e0e;
   padding: 0.75rem 4vw;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 40;
+  z-index: 50;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,13 +24,13 @@ const NavLinks = styled.div`
   }
 
   a {
-    color: #1565C0;
+    color: #FFBF00;
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s ease;
 
     &:hover {
-      color: #FFFFFF;
+      color: #F1F1F1F1;
     }
   }
 `;
@@ -48,7 +48,7 @@ const HamburgerContainer = styled.div`
   & > div {
     width: 24px;
     height: 2px;
-    background: #1565C0;
+    background: #FFBF00;
     margin-bottom: 6px;
   }
 `;
@@ -97,7 +97,7 @@ const CloseButton = styled.button`
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #1565C0;
+  color: #FFBF00;
 `;
 
 const SidebarLinks = styled.nav`
@@ -107,13 +107,13 @@ const SidebarLinks = styled.nav`
   margin-top: 3rem;
 
   a {
-    color: #1565C0;
+    color: #FFBF00;
     text-decoration: none;
     font-size: 1.2rem;
     transition: color 0.3s ease;
 
     &:hover {
-      color: #FFFFFF;
+      color: #F1F1F1F1;
     }
   }
 `;
@@ -146,7 +146,7 @@ export default function Navigation() {
   return (
     <>
       <NavbarContainer>
-        <div style={{ color: '#1565C0', fontSize: '1.5rem', fontWeight: 'bold', fontFamily: 'Lora' }}>Gianni.dev</div>
+        <div style={{ color: '#FFBF00', fontSize: '1.5rem', fontWeight: 'bold', fontFamily: 'Lora' }}>Gianni.dev</div>
         <NavLinks className='font-lora'>
           <a href="#home">Home</a>
           <a href="#about">About</a>

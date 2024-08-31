@@ -37,7 +37,7 @@ export default function Projects() {
   return (
     <section id="projects" className="min-h-screen bg-black text-white py-16 font-lora">
       <div className="container mx-auto px-4 max-w-6xl">
-        <h2 className="text-3xl font-bold text-center mb-12 text-blue-600">PROJECTS</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 text-amber-600">PROJECTS</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <Project

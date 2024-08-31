@@ -54,7 +54,7 @@ const ContactMe = () => {
   };
 
   return (
-    <section id="contact" className="py-16 bg-black text-blue-600 font-lora">
+    <section id="contact" className="py-16 bg-black text-amber-600 font-lora">
       <Toaster />
       <div className="container mx-auto px-4 max-w-4xl">
         <h2 data-aos="fade-up" className="text-3xl font-bold mb-8 text-center">CONTACT ME</h2>
@@ -71,7 +71,7 @@ const ContactMe = () => {
                 </svg>
                 <span className="hidden sm:inline">Email</span>
               </a>
-              <a href="https://www.linkedin.com/in/giovanni-di-stefano-0b00bb202/" target='_blank' rel="noopener noreferrer" className='flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors'>
+              <a href="https://www.linkedin.com/in/giovanni-di-stefano-0b00bb202/" target='_blank' rel="noopener noreferrer" className='flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-amber-700 transition-colors'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                   <rect x="2" y="9" width="4" height="12"></rect>
@@ -98,7 +98,7 @@ const ContactMe = () => {
                   type="text"
                   id="name"
                   name="from_name"
-                  className="w-full px-3 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-900 text-white"
+                  className="w-full px-3 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-900 text-white"
                   required
                 />
               </div>
@@ -108,7 +108,7 @@ const ContactMe = () => {
                   type="email"
                   id="email"
                   name="reply_to"
-                  className="w-full px-3 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-900 text-white"
+                  className="w-full px-3 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-900 text-white"
                   required
                 />
               </div>
@@ -117,14 +117,14 @@ const ContactMe = () => {
                 <textarea
                   id="message"
                   name="message"
-                  className="w-full px-3 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-900 text-white"
+                  className="w-full px-3 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-900 text-white"
                   rows={4}
                   required
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                className="w-full px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-colors"
               >
                 Send Message
               </button>

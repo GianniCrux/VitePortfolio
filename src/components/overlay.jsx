@@ -61,7 +61,7 @@ const SocialIcons = styled.div`
     pointer-events: auto;
 
     &:hover {
-      color: #1565C0;
+      color: #FFBF00;
     }
   }
 `;
@@ -71,7 +71,7 @@ const Heading = styled.h1`
   line-height: 1.2;
   margin: 0;
   font-weight: 700;
-  color: #1565C0;
+  color: #FFBF00;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -81,14 +81,14 @@ export default function Overlay() {
   return (
     <Container>
       <TopLeft>
-      <p style={{ color: '#1565C0' }}>Full Stack —</p>
+      <p style={{ color: '#FFBF00' }}>Full Stack —</p>
         <Heading>
           Software <br /> Developer,
           <br />
           Designer
         </Heading>
       </TopLeft>
-      <BottomLeft style={{ color: '#1565C0' }}>
+      <BottomLeft style={{ color: '#FFBF00' }}>
         Passionate about creating beautiful and functional web experiences
         <SocialIcons>
           <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
@@ -99,7 +99,7 @@ export default function Overlay() {
           </a>
         </SocialIcons>
       </BottomLeft>
-      <BottomRight style={{ color: '#1565C0' }}>
+      <BottomRight style={{ color: '#FFBF00' }}>
         <BiLeftArrow />
       </BottomRight>
     </Container>
