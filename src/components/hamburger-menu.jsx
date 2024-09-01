@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
 
 const NavbarContainer = styled.nav`
-  background-color: #0e0e0e0e;
+  background-color: #0e0e0eD9;
   padding: 0.75rem 4vw;
   position: fixed;
   top: 0;

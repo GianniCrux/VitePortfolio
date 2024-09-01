@@ -1,4 +1,5 @@
 import emailjs from 'emailjs-com';
+import { Mail, MessageSquare, User } from 'lucide-react';
 import { toast, Toaster } from 'sonner';
 
 const ContactMe = () => {
@@ -92,9 +93,10 @@ const ContactMe = () => {
           <div>
 
             <form onSubmit={sendEmail} className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-1">Your Name</label>
+              <div className='flex items-center'>
+              <User className="w-5 h-5 mr-2 text-amber-500" />
                 <input
+                  placeholder='Your name'
                   type="text"
                   id="name"
                   name="from_name"
@@ -102,9 +104,10 @@ const ContactMe = () => {
                   required
                 />
               </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-1">Your Email</label>
+              <div className='flex items-center'>
+              <Mail className="w-5 h-5 mr-2 text-amber-500" />
                 <input
+                  placeholder='Your email'
                   type="email"
                   id="email"
                   name="reply_to"
@@ -112,9 +115,10 @@ const ContactMe = () => {
                   required
                 />
               </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-1">Your Message</label>
+              <div className='flex items-center'>
+              <MessageSquare className="w-5 h-5 mr-2 text-amber-500" />
                 <textarea
+                  placeholder='Your message'
                   id="message"
                   name="message"
                   className="w-full px-3 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-gray-900 text-white"
