@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs, FaPython, FaCloud, FaCube } from 'react-icons/fa';
 import { SiNextdotjs, SiTailwindcss, SiTypescript, SiRedux, SiPrisma } from 'react-icons/si';
 import { GiCubes } from 'react-icons/gi';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
 const TechIcon = ({ Icon, name }) => (
   <div className="flex flex-col items-center p-2 w-20 flex-shrink-0">
@@ -35,17 +35,55 @@ export default function AboutMe() {
   ];
 
   const carouselRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const startDragging = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - carouselRef.current.offsetLeft);
+    setScrollLeft(carouselRef.current.scrollLeft);
+  };
+
+  const stopDragging = () => {
+    setIsDragging(false);
+  };
+
+  const onDrag = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 1;
+    carouselRef.current.scrollLeft = scrollLeft - walk;
+  };
 
   useEffect(() => {
     const carousel = carouselRef.current;
-    if (carousel) {
-      const scrollWidth = carousel.scrollWidth;
-      const animationDuration = scrollWidth / 100;
+    let scrollInterval;
 
-      carousel.style.setProperty('--scroll-width', `${scrollWidth}px`);
-      carousel.style.setProperty('--animation-duration', `${animationDuration}s`);
-    }
+    const startAutoScroll = () => {
+      scrollInterval = setInterval(() => {
+        carousel.scrollLeft += 1;
+        if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
+          carousel.scrollLeft = 0;
+        }
+      }, 10); // Adjust the interval for scroll speed
+    };
+
+    startAutoScroll();
+
+    const stopAutoScroll = () => clearInterval(scrollInterval);
+
+    carousel.addEventListener('mouseenter', stopAutoScroll);
+    carousel.addEventListener('mouseleave', startAutoScroll);
+
+    return () => {
+      clearInterval(scrollInterval);
+      carousel.removeEventListener('mouseenter', stopAutoScroll);
+      carousel.removeEventListener('mouseleave', startAutoScroll);
+    };
   }, []);
+
 
   return (
     <section id="about" className="py-10 bg-black text-black min-h-screen flex flex-col items-center justify-center">
@@ -64,15 +102,18 @@ export default function AboutMe() {
         
         <div className="mt-16">
           <h3 className="text-2xl md:text-3xl text-amber-500 tracking-tighter text-center font-playfair mb-8">Technologies i work with</h3>
-          <div className="overflow-hidden bg-gray-900 bg-opacity-50 rounded-lg p-4">
+          <div 
+            className="overflow-hidden bg-gray-900 bg-opacity-50 rounded-lg p-4"
+            onMouseDown={startDragging}
+            onMouseUp={stopDragging}
+            onMouseLeave={stopDragging}
+            onMouseMove={onDrag}
+          >
             <div 
               ref={carouselRef}
-              className="flex animate-carousel"
-              style={{
-                animation: 'carousel var(--animation-duration) linear infinite',
-              }}
+              className="flex overflow-x-hidden"
             >
-              {[...technologies, ...technologies].map((tech, index) => (
+              {[...technologies, ...technologies, ...technologies, ...technologies, ...technologies, ...technologies, ...technologies, ...technologies, ...technologies, ...technologies].map((tech, index) => (
                 <TechIcon key={index} Icon={tech.Icon} name={tech.name} />
               ))}
             </div>
