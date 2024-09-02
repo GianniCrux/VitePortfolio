@@ -67,7 +67,7 @@ export default function AboutMe() {
         if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
           carousel.scrollLeft = 0;
         }
-      }, 10); // Adjust the interval for scroll speed
+      }, 10);
     };
 
     startAutoScroll();

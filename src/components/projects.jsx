@@ -6,6 +6,7 @@ const projects = [
     description: 'Miro clone: offer the possibility to create plans and workflows and collaborate real time with other users within the same organization',
     previewImage: '/logo-sticks.svg',
     imageUrl: '/sticks-screen.png', 
+    width:"w-[60%]",
     link: 'https://sticks-gamma.vercel.app/',
     passkey: `testuser1: mario+clerk_test@example.com password: 12345678
 testuser2: marzia+clerk_test@example.com password: 12345678`
@@ -15,6 +16,7 @@ testuser2: marzia+clerk_test@example.com password: 12345678`
     description: 'Floating Lemons is a landing page featuring interactive floating 3D objects and animations, built with React Three Fiber and Three.js. It offers an immersive exploration of 3D environments.',
     previewImage: '/lemons-screen.png',
     imageUrl: '/lemons.png', 
+    width:"w-[100%]",
     link: 'https://floatinglemons.vercel.app/',
   },
   {
@@ -22,6 +24,7 @@ testuser2: marzia+clerk_test@example.com password: 12345678`
     description: 'GPlanner is an advanced plan scheduling application designed with React, Next.js, and Tailwind CSS. It offers an interactive calendar experience using "react-big-calendar". The app integrates "clerk-react" for seamless authentication while data management and serverless data operations are supported by Convex. The setup includes robust support for development, building, and linting  to ensure a seamless development experience.',
     previewImage: '/plannerLogo.svg',
     imageUrl: '/gplanner-screen.png',
+    width:"w-[50%]",
     link: 'https://project2.com',
   },
   {
@@ -29,6 +32,7 @@ testuser2: marzia+clerk_test@example.com password: 12345678`
     description: 'Cars dodging mini-game',
     previewImage: '/highway-screen.png',
     imageUrl: '/highway-screen.png', 
+    width:"w-full",
     link: 'https://project2.com',
   },
 ];
@@ -48,6 +52,7 @@ export default function Projects() {
               link={project.link}
               previewImage={project.previewImage} 
               passkey={project.passkey}
+              width={project.width}
             />
           ))}
         </div>
