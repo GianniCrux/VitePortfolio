@@ -57,7 +57,7 @@ const HamburgerContainer = styled.div`
 const Sidebar = styled.div`
   position: fixed;
   top: 0;
-  right: ${({ isOpen }) => (isOpen ? '0' : '-300px')};
+  right: ${({ sidebarVisible }) => (sidebarVisible ? '0' : '-300px')};
   width: 300px;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
@@ -78,11 +78,11 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: ${({ isOpen }) => (isOpen ? 'blur(10px)' : 'none')};
-  background-color: ${({ isOpen }) => (isOpen ? 'rgba(0, 0, 0, 0.5)' : 'transparent')};
+  backdrop-filter: ${({ sidebarVisible }) => (sidebarVisible ? 'blur(10px)' : 'none')};
+  background-color: ${({ sidebarVisible }) => (sidebarVisible ? 'rgba(0, 0, 0, 0.5)' : 'transparent')};
   transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
   z-index: 20;
-  pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
+  pointer-events: ${({ sidebarVisible }) => (sidebarVisible ? 'auto' : 'none')};
 
   @media (min-width: 568px) {
     display: none;
@@ -164,9 +164,9 @@ export default function Navigation() {
 
       {isMobile && (
         <>
-          <Overlay isOpen={isSidebarOpen} onClick={closeSidebar} />
+          <Overlay sidebarVisible={isSidebarOpen} onClick={closeSidebar} />
 
-          <Sidebar isOpen={isSidebarOpen}>
+          <Sidebar sidebarVisible={isSidebarOpen}>
             <CloseButton onClick={closeSidebar}>
               <AiOutlineClose />
             </CloseButton>
