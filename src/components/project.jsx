@@ -2,13 +2,13 @@ import PropTypes from 'prop-types';
 
 const Project = ({ title, description, imageUrl, link, previewImage, passkey, width }) => {
   return (
-    <div className="relative bg-white group overflow-hidden border border-amber-400 rounded-lg shadow-md w-full h-[250px] transition-all duration-300 hover:shadow-lg hover:border-amber-500">
+    <div className="relative bg-white group overflow-hidden border border-amber-400 rounded-lg shadow-md w-full h-[250px] transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:h-[300px] hover:w-[105%] hover:translate-y-[-10px] hover:z-10">
       <a href={link} target="_blank" rel="noopener noreferrer" className="block h-full">
         <div className="relative flex justify-center items-center w-full h-full">
           <img 
             src={previewImage} 
             alt={`${title} logo`} 
-            className={`object-cover ${width}  h-full transition-opacity duration-300 group-hover:opacity-0`} 
+            className={`object-cover ${width} h-full transition-opacity duration-300 group-hover:opacity-0`} 
           />
         </div>
       </a>
