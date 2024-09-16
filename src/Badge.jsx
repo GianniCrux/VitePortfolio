@@ -10,13 +10,15 @@ useGLTF.preload('/gianniBadge2-transformed.glb')
 useTexture.preload('/gianni-tag.jpg')
 
 export default function Badge() {
+  const [resizeFlag, setResizeFlag] = useState(false)
+
   useEffect(() => {
     let resizeTimer;
     const handleResize = () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
-        window.location.reload();
-      }, 250); // Debounce for 250ms
+        setResizeFlag((prev) => !prev)
+      }, 250); 
     };
 
     window.addEventListener('resize', handleResize);
@@ -30,13 +32,11 @@ export default function Badge() {
     <Canvas style={{ position: 'absolute', width: '100%', height: '100%' }} camera={{ position: [1, 0, 13], fov: 25 }}>
       <ambientLight intensity={Math.PI} />
       <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
-        <Band />
+        <Band key={resizeFlag}/>
       </Physics>
       <Environment background blur={0.75}>
         <color attach="background" args={['black']} />
         <Lightformer intensity={2} color="white" position={[0, -1, 5]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
-        <Lightformer intensity={3} color="white" position={[-1, -1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
-        <Lightformer intensity={3} color="white" position={[1, 1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
         <Lightformer intensity={10} color="white" position={[-10, 0, 14]} rotation={[0, Math.PI / 2, Math.PI / 3]} scale={[100, 10, 1]} />
       </Environment>
     </Canvas>
@@ -47,7 +47,7 @@ function Band({ maxSpeed = 50, minSpeed = 10, ...props }) {
   const band = useRef(), fixed = useRef(), j1 = useRef(), j2 = useRef(), j3 = useRef(), card = useRef()
   const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3()
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 2, linearDamping: 2 }
-  const { nodes, materials } = useGLTF('/gianniBadge2-transformed.glb')
+  const { nodes, materials } = useGLTF('/gianniBadge2-transformed.glb', '/path/to/draco/')
   const texture = useTexture('/gianni-tag.jpg')
   const { width, height } = useThree((state) => state.size)
   const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]))
