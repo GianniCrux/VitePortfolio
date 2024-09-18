@@ -90,10 +90,10 @@ export default function Overlay() {
       <BottomLeft style={{ color: '#FFBF00' }}>
         Passionate about creating beautiful and functional web experiences
         <SocialIcons>
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/GianniCrux" target="_blank" rel="noopener noreferrer">
             <FaGithub />
           </a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/giovanni-di-stefano-0b00bb202/" target="_blank" rel="noopener noreferrer">
             <FaLinkedin />
           </a>
         </SocialIcons>
