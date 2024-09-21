@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
+import AnimatedHamburger from '../_components/animatedHamburger';
 
 const NavbarContainer = styled.nav`
   background-color: #0e0e0eD9;
@@ -35,23 +36,6 @@ const NavLinks = styled.div`
   }
 `;
 
-const HamburgerContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  z-index: 30;
-
-  @media (min-width: 568px) {
-    display: none;
-  }
-
-  & > div {
-    width: 24px;
-    height: 2px;
-    background: #FFBF00;
-    margin-bottom: 6px;
-  }
-`;
 
 
 const Sidebar = styled.div`
@@ -154,11 +138,7 @@ export default function Navigation() {
           <a href="#contact">Contact</a>
         </NavLinks>
         {isMobile && (
-          <HamburgerContainer onClick={toggleSidebar}>
-            <div />
-            <div />
-            <div />
-          </HamburgerContainer>
+          <AnimatedHamburger isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         )}
       </NavbarContainer>
 
