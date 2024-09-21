@@ -92,10 +92,10 @@ export default function AboutMe() {
           <h2 className="text-3xl md:text-4xl text-amber-600 tracking-tighter font-playfair mb-6">About me</h2>
           <div>
             <p className="tracking-tighter text-white mb-4 font-lora text-sm md:text-base">
-              I&apos;m a passionate web developer with a keen interest in creating user-friendly and visually appealing websites. With expertise in React, Next.js, and modern web technologies, I strive to build efficient and scalable applications that make a positive impact.
+              As a dedicated web developer, I specialize in crafting user-centric, visually appealing websites with a strong focus on efficiency and scalability. Leveraging my expertise in React, Next.js, and modern web technologies, I build applications that not only meet high performance standards but also deliver a seamless user experience.
             </p>
             <p className="tracking-tighter text-white font-lora text-sm md:text-base">
-              Besides developing, I love playing video games, film, adventures, and challenges. I enjoy trekking, love animals, and always try to create a good and comfortable environment so everyone can feel at home!
+            Beyond coding, I&apos;m an avid gamer and film enthusiast who thrives on adventures and challenges. My love for trekking and animals keeps me connected to nature, and I always aim to foster an inclusive environment where everyone feels at home. I&apos;m passionate about continuously evolving as a developer, embracing new technologies, and creating solutions that make a meaningful impact.
             </p>
           </div>
         </div>
