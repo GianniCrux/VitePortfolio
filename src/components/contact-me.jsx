@@ -6,11 +6,6 @@ const ContactMe = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    const formData = new FormData(e.target);
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`); // Check form data
-    }
-
     emailjs
       .sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -19,8 +14,7 @@ const ContactMe = () => {
         import.meta.env.VITE_EMAILJS_USER_ID
       )
       .then(
-        (result) => {
-          console.log(result.text); // Log the result for debugging
+        () => {
           toast.success('Message Sent!', {
             position: 'bottom-center',
             duration: 5000,
@@ -34,8 +28,7 @@ const ContactMe = () => {
             },
           });
         },
-        (error) => {
-          console.log(error.text); // Log any errors for debugging
+        () => { // Log any errors for debugging
           toast.error('Message failed to send. Please try again.', {
             position: 'bottom-center',
             duration: 5000,
