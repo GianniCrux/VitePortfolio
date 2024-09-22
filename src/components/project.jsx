@@ -31,34 +31,23 @@ const Project = ({ title, description, imageUrl, link, previewImage, passkey, wi
       >
         <div className="p-4 w-full h-full">
           <div className="flex flex-col justify-between h-full">
-            <h3 className="text-xl md:text-2xl font-light mb-2 text-amber-600">{title}</h3>
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-xl md:text-2xl font-light text-amber-600 w-2/3">{title}</h3>
+              <a 
+                href={link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="border-none text-amber-400 px-2 py-1 rounded text-xs hover:text-yellow-200 transition-colors duration-300 flex items-center space-x-1"
+              >
+                <span className="underline">Discover More</span>
+                <ArrowRightIcon size={12} />
+              </a>
+            </div>
             <div className="overflow-y-auto scrollbar-hide mb-4 max-h-[60%]">
               <p className="text-white text-xs md:text-sm">{description}</p>
               {passkey && (
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mt-2 space-y-2 md:space-y-0">
                   <pre className="text-xs text-gray-400 break-all">{passkey}</pre>
-                  <a 
-                    href={link} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="border-none text-amber-400 px-3 py-1 rounded text-xs hover:text-yellow-200 transition-colors duration-300 flex items-center space-x-1 whitespace-nowrap"
-                  >
-                    <span className="underline">Discover More</span>
-                    <ArrowRightIcon size={12} />
-                  </a>
-                </div>
-              )}
-              {!passkey && (
-                <div className="flex justify-end mt-2">
-                  <a 
-                    href={link} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="border-none text-amber-400 px-3 py-1 rounded text-xs hover:text-yellow-200 transition-colors duration-300 flex items-center space-x-1 whitespace-nowrap"
-                  >
-                    <span className="underline">Discover More</span>
-                    <ArrowRightIcon size={12} />
-                  </a>
                 </div>
               )}
             </div>
