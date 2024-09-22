@@ -48,13 +48,13 @@ const ContactMe = () => {
   };
 
   return (
-    <section id="contact" className="py-16 bg-black text-amber-600 font-lora">
+    <section id="contact" className="py-16 bg-black text-amber-600 font-lora h-screen flex items-center">
       <Toaster />
       <div className="container mx-auto px-4 max-w-4xl">
         <h2 className="text-3xl font-bold mb-8 text-center">Send a message</h2>
         
         <div className="grid md:grid-cols-2 gap-8">
-          <div>
+          <div className='flex flex-col justify-center'>
             <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
             <p className="mb-6 text-white">Feel free to reach out through any of these channels:</p>
             <div className='flex flex-wrap gap-4 mb-8'>
