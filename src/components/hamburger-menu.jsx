@@ -173,9 +173,7 @@ export default function Navigation() {
       <NavbarContainer>
       <StyledHeading
           href="#home"
-          $isActive={activeSection === 'home'}
-          $isBrand={true}
-          onClick={() => handleActiveSection('home')}
+          className='!text-2xl'
         >
           Gianni.dev
         </StyledHeading>
