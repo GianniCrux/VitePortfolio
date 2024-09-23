@@ -16,6 +16,35 @@ const NavbarContainer = styled.nav`
   align-items: center;
 `;
 
+const StyledHeading = styled.a`
+  position: relative;
+  color: #FFBF00;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Lora';
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #F1F1F1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: #F1F1F1;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+`;
+
 const NavLinks = styled.div`
   display: none;
 
@@ -28,10 +57,26 @@ const NavLinks = styled.div`
     color: #FFBF00;
     text-decoration: none;
     font-size: 1rem;
+    position: relative;
     transition: color 0.3s ease;
 
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px; 
+      width: 0;
+      height: 2px;
+      background-color: #F1F1F1;
+      transition: width 0.3s ease;
+    }
+
     &:hover {
-      color: #F1F1F1F1;
+      color: #F1F1F1;
+
+      &::after {
+        width: 100%; 
+      }
     }
   }
 `;
@@ -94,10 +139,26 @@ const SidebarLinks = styled.nav`
     color: #FFBF00;
     text-decoration: none;
     font-size: 1.2rem;
+    position: relative;
     transition: color 0.3s ease;
 
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px; 
+      width: 0;
+      height: 2px; 
+      background-color: #F1F1F1;
+      transition: width 0.3s ease;
+    }
+
     &:hover {
-      color: #F1F1F1F1;
+      color: #F1F1F1;
+
+      &::after {
+        width: 100%; /* Expands the underline on hover */
+      }
     }
   }
 `;
@@ -130,7 +191,16 @@ export default function Navigation() {
   return (
     <>
       <NavbarContainer>
-        <a href="#home" style={{ color: '#FFBF00', fontSize: '1.5rem', fontWeight: 'bold', fontFamily: 'Lora' }} onClick={closeSidebar} >Gianni.dev</a>
+        <StyledHeading>
+      <a
+          href="#home"
+          className="text-[#FFBF00] text-lg font-bold font-lora relative hover:text-[#F1F1F1] transition-colors duration-300"
+          onClick={closeSidebar}
+        >
+          Gianni.dev
+          <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#F1F1F1] transition-all duration-300 group-hover:w-full block"></span>
+        </a>
+        </StyledHeading>
         <NavLinks className='font-lora'>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
