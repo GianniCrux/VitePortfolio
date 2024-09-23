@@ -55,8 +55,8 @@ const SocialIcons = styled.div`
   margin-top: 1rem;
 
   a {
-    color: #252525;
-    font-size: 1.5rem;
+    color: #404040;
+    font-size: 1.8rem;
     transition: color 0.3s ease;
     pointer-events: auto;
 
