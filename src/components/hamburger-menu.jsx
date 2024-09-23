@@ -18,10 +18,10 @@ const NavbarContainer = styled.nav`
 
 const StyledHeading = styled.a`
   position: relative;
-  color: #FFBF00;
+  color: ${({ $isActive }) => ($isActive ? '#F1F1F1' : '#FFBF00')};
   text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: ${({ $isBrand }) => ($isBrand ? '1.5rem' : '1rem')};
+  font-weight: ${({ $isBrand }) => ($isBrand ? 'bold' : 'normal')};
   font-family: 'Lora';
   transition: color 0.3s ease;
 
@@ -34,7 +34,7 @@ const StyledHeading = styled.a`
     position: absolute;
     left: 0;
     bottom: -2px;
-    width: 0;
+    width: ${({ $isActive }) => ($isActive ? '100%' : '0')};
     height: 2px;
     background-color: #F1F1F1;
     transition: width 0.3s ease;
@@ -52,34 +52,8 @@ const NavLinks = styled.div`
     display: flex;
     gap: 2rem;
   }
-
-  a {
-    color: #FFBF00;
-    text-decoration: none;
-    font-size: 1rem;
-    position: relative;
-    transition: color 0.3s ease;
-
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -2px; 
-      width: 0;
-      height: 2px;
-      background-color: #F1F1F1;
-      transition: width 0.3s ease;
-    }
-
-    &:hover {
-      color: #F1F1F1;
-
-      &::after {
-        width: 100%; 
-      }
-    }
-  }
 `;
+
 
 
 
@@ -147,7 +121,7 @@ const SidebarLinks = styled.nav`
       position: absolute;
       left: 0;
       bottom: -2px; 
-      width: 0;
+      width: ${({ $isActive }) => ($isActive ? '100%' : '0')};
       height: 2px; 
       background-color: #F1F1F1;
       transition: width 0.3s ease;
@@ -157,7 +131,7 @@ const SidebarLinks = styled.nav`
       color: #F1F1F1;
 
       &::after {
-        width: 100%; /* Expands the underline on hover */
+        width: 100%;
       }
     }
   }
@@ -166,6 +140,7 @@ const SidebarLinks = styled.nav`
 export default function Navigation() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const checkMobile = () => {
@@ -188,23 +163,44 @@ export default function Navigation() {
     setIsSidebarOpen(false);
   };
 
+  const handleActiveSection = (section) => {
+    setActiveSection(section);
+    closeSidebar();
+  }
+
   return (
     <>
       <NavbarContainer>
-        <StyledHeading>
-      <a
+      <StyledHeading
           href="#home"
-          className="text-[#FFBF00] text-lg font-bold font-lora relative hover:text-[#F1F1F1] transition-colors duration-300"
-          onClick={closeSidebar}
+          $isActive={activeSection === 'home'}
+          $isBrand={true}
+          onClick={() => handleActiveSection('home')}
         >
           Gianni.dev
-          <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#F1F1F1] transition-all duration-300 group-hover:w-full block"></span>
-        </a>
         </StyledHeading>
-        <NavLinks className='font-lora'>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+        <NavLinks>
+          <StyledHeading
+            href="#about"
+            $isActive={activeSection === 'about'}
+            onClick={() => handleActiveSection('about')}
+          >
+            About
+          </StyledHeading>
+          <StyledHeading
+            href="#projects"
+            $isActive={activeSection === 'projects'}
+            onClick={() => handleActiveSection('projects')}
+          >
+            Projects
+          </StyledHeading>
+          <StyledHeading
+            href="#contact"
+            $isActive={activeSection === 'contact'}
+            onClick={() => handleActiveSection('contact')}
+          >
+            Contact
+          </StyledHeading>
         </NavLinks>
         {isMobile && (
           <AnimatedHamburger isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
@@ -220,9 +216,27 @@ export default function Navigation() {
               <AiOutlineClose />
             </CloseButton>
             <SidebarLinks>
-              <a href="#about" onClick={closeSidebar}>About</a>
-              <a href="#projects" onClick={closeSidebar}>Projects</a>
-              <a href="#contact" onClick={closeSidebar}>Contact</a>
+              <StyledHeading
+                href="#about"
+                $isActive={activeSection === 'about'}
+                onClick={() => handleActiveSection('about')}
+              >
+                About
+              </StyledHeading>
+              <StyledHeading
+                href="#projects"
+                $isActive={activeSection === 'projects'}
+                onClick={() => handleActiveSection('projects')}
+              >
+                Projects
+              </StyledHeading>
+              <StyledHeading
+                href="#contact"
+                $isActive={activeSection === 'contact'}
+                onClick={() => handleActiveSection('contact')}
+              >
+                Contact
+              </StyledHeading>
             </SidebarLinks>
           </Sidebar>
         </>
