@@ -130,9 +130,8 @@ export default function Navigation() {
   return (
     <>
       <NavbarContainer>
-        <div style={{ color: '#FFBF00', fontSize: '1.5rem', fontWeight: 'bold', fontFamily: 'Lora' }}>Gianni.dev</div>
+        <a href="#home" style={{ color: '#FFBF00', fontSize: '1.5rem', fontWeight: 'bold', fontFamily: 'Lora' }} onClick={closeSidebar} >Gianni.dev</a>
         <NavLinks className='font-lora'>
-          <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
@@ -151,7 +150,6 @@ export default function Navigation() {
               <AiOutlineClose />
             </CloseButton>
             <SidebarLinks>
-              <a href="#home" onClick={closeSidebar}>Home</a>
               <a href="#about" onClick={closeSidebar}>About</a>
               <a href="#projects" onClick={closeSidebar}>Projects</a>
               <a href="#contact" onClick={closeSidebar}>Contact</a>
