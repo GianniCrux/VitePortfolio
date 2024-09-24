@@ -193,6 +193,13 @@ export default function Navigation() {
             Projects
           </StyledHeading>
           <StyledHeading
+            href="#calendly"
+            $isActive={activeSection === 'calendly'}
+            onClick={() => handleActiveSection('calendly')}
+          >
+            Book an appointment
+          </StyledHeading>
+          <StyledHeading
             href="#contact"
             $isActive={activeSection === 'contact'}
             onClick={() => handleActiveSection('contact')}
@@ -227,6 +234,13 @@ export default function Navigation() {
                 onClick={() => handleActiveSection('projects')}
               >
                 Projects
+              </StyledHeading>
+              <StyledHeading
+                href="#calendly"
+                $isActive={activeSection === 'calendly'}
+                onClick={() => handleActiveSection('calendly')}
+              >
+                Book an appointment
               </StyledHeading>
               <StyledHeading
                 href="#contact"
