@@ -22,7 +22,7 @@ const TopLeft = styled.div`
   font-family: 'Playfair Display', serif;
 
   @media (max-width: 768px) {
-    padding-top: 6vw;
+    padding-top: 10vw;
   }
 `;
 
