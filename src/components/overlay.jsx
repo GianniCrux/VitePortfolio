@@ -31,7 +31,7 @@ const BottomLeft = styled.div`
   bottom: 5vw;
   left: 5vw;
   width: 30ch;
-  max-width: 40%;
+  max-width: 60%;
   pointer-events: auto;
   font-family: 'Playfair Display', serif;
   font-weight: bold;
