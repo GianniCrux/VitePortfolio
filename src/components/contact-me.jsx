@@ -51,12 +51,12 @@ const ContactMe = () => {
     <section className="py-16 bg-black text-amber-600 font-lora h-screen flex items-center">
       <Toaster />
       <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-3xl font-bold mb-8 text-center">Send a message</h2>
+        <h2 className="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
         
         <div className="grid md:grid-cols-2 gap-8">
           <div className='flex flex-col justify-center'>
-            <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
-            <p className="mb-6 text-white">Feel free to reach out through any of these channels:</p>
+            <h3 className="text-md font-medium mb-4">Feel free to reach out through any of these channels:</h3>
+            <p className="mb-6 text-white"></p>
             <div className='flex flex-wrap gap-4 mb-8'>
               <a href='https://mail.google.com/mail/?view=cm&fs=1&to=gianni.disti@gmail.com' target='_blank' rel="noopener noreferrer" className='flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -84,7 +84,7 @@ const ContactMe = () => {
           </div>
 
           <div>
-
+              <h1 className='p-5 font-medium text-lg'>Send a message!</h1>
             <form onSubmit={sendEmail} className="space-y-4">
               <div className='flex items-center'>
               <User className="w-5 h-5 mr-2 text-amber-500" />
