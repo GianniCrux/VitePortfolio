@@ -48,7 +48,7 @@ const ContactMe = () => {
   };
 
   return (
-    <section className="py-16 bg-amber-300 text-black h-screen flex items-center font-sans">
+    <section id='contact' className="py-16 bg-amber-300 text-black h-screen flex items-center font-sans">
       <Toaster />
       <div className="container mx-auto px-4 max-w-4xl">
         <h2 className="text-3xl font-bold mb-8 text-center font-lora">Get in Touch</h2>
