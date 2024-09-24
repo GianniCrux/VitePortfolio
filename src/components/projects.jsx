@@ -8,8 +8,10 @@ const projects = [
     imageUrl: '/sticks-screen.png', 
     width:"w-[60%]",
     link: 'https://sticks-gamma.vercel.app/',
-    passkey: `testuser1: mario+clerk_test@example.com password: 12345678
-testuser2: marzia+clerk_test@example.com password: 12345678`
+    passkey: `testuser1: mario+clerk_test@example.com 
+password: 12345678
+testuser2: marzia+clerk_test@example.com 
+password: 12345678`
   },
   {
     title: 'Floating Lemons',
