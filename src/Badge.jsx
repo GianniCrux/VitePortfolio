@@ -10,29 +10,38 @@ useGLTF.preload('/gianniBadgeV0-amber-v1-transformed.glb')
 useTexture.preload('/gianni-tag.jpg')
 
 export default function Badge() {
-  const [resizeFlag, setResizeFlag] = useState(false)
+  const [isMobileView, setIsMobileView] = useState(false)
+  const [resizeKey, setResizeKey] = useState(0)
 
   useEffect(() => {
-    let resizeTimer;
     const handleResize = () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        setResizeFlag((prev) => !prev)
-      }, 250); 
-    };
+      setIsMobileView(window.innerWidth <= 1024)
+      setResizeKey((prev) => prev + 1)
+    }
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize)
+    handleResize()
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  if (isMobileView) {
+    return (
+<div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black">
+  <img 
+    src="/badgeScreen.png" 
+    alt="Badge" 
+    className="max-w-[80%] max-h-[80%] object-contain ml-8"
+  />
+</div>
+    )
+  }
 
   return (
-    <Canvas style={{ position: 'absolute', width: '100%', height: '100%' }} camera={{ position: [1, 0, 13], fov: 25 }}>
+    <Canvas key={resizeKey} style={{ position: 'absolute', width: '100%', height: '100%' }} camera={{ position: [1, 0, 13], fov: 25 }}>
       <ambientLight intensity={Math.PI} />
       <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
-        <Band key={resizeFlag}/>
+        <Band />
       </Physics>
       <Environment background blur={0.75}>
         <color attach="background" args={['black']} />
