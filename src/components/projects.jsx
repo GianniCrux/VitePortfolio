@@ -39,10 +39,10 @@ testuser2: marzia+clerk_test@example.com password: 12345678`
 
 export default function Projects() {
   return (
-    <section id="projects" className="min-h-screen bg-black text-white py-16 font-lora">
+    <section id="projects" className="min-h-screen bg-amber-300 text-black py-16">
       <div className="container mx-auto px-4 max-w-6xl">
-        <h2 className="text-3xl font-bold text-center mb-12 text-amber-600">Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 auto-rows-fr gap-x-20 cursor-">
+        <h2 className="text-3xl font-bold text-center mb-12 font-lora text-black">Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 auto-rows-fr gap-x-20 font-sans">
           {projects.map((project, index) => (
             <Project
               key={index}

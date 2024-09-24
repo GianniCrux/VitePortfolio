@@ -7,7 +7,7 @@ const Project = ({ title, description, imageUrl, link, previewImage, passkey, wi
 
   return (
     <div 
-      className="relative bg-white overflow-hidden border border-amber-400 rounded-lg shadow-md w-full transition-all duration-500 hover:shadow-2xl"
+      className="relative bg-white overflow-hidden border border-black rounded-lg shadow-md w-full transition-all duration-500 hover:shadow-2xl"
       style={{
         height: isHovered ? '300px' : '250px',
         transform: isHovered ? 'translateY(-10px)' : 'none',
@@ -26,28 +26,28 @@ const Project = ({ title, description, imageUrl, link, previewImage, passkey, wi
         </div>
       </div>
       <div 
-        className="absolute inset-0 bg-black bg-opacity-90 flex items-center justify-center transition-opacity duration-300"
+        className="absolute inset-0 bg-yellow-100 bg-opacity-90 flex items-center justify-center transition-opacity duration-300"
         style={{ opacity: isHovered ? '1' : '0' }}
       >
         <div className="p-4 w-full h-full">
           <div className="flex flex-col justify-between h-full">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-xl md:text-2xl font-light text-amber-600 w-2/3">{title}</h3>
+              <h3 className="text-xl md:text-2xl font-semibold text-black w-2/3">{title}</h3>
               <a 
                 href={link} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="border-none text-amber-400 px-2 py-1 rounded text-xs hover:text-yellow-200 transition-colors duration-300 flex items-center space-x-1"
+                className="border-none text-black px-2 py-1 rounded text-xs hover:text-white transition-colors duration-300 flex items-center space-x-1"
               >
-                <span className="underline">Discover More</span>
+                <span className="underline text-medium">Discover More</span>
                 <ArrowRightIcon size={12} />
               </a>
             </div>
             <div className="overflow-y-auto scrollbar-hide mb-4 max-h-[60%]">
-              <p className="text-white text-xs md:text-sm">{description}</p>
+              <p className="text-black text-xs font-medium md:text-sm">{description}</p>
               {passkey && (
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mt-2 space-y-2 md:space-y-0">
-                  <pre className="text-xs text-gray-400 break-all">{passkey}</pre>
+                  <pre className="text-xs text-gray-800 break-all">{passkey}</pre>
                 </div>
               )}
             </div>
