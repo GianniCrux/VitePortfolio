@@ -18,7 +18,7 @@ const NavbarContainer = styled.nav`
 
 const StyledHeading = styled.a`
   position: relative;
-  color: ${({ $isActive }) => ($isActive ? '#F1F1F1' : '#FFBF00')};
+  color: #FFBF00;
   text-decoration: none;
   font-size: ${({ $isBrand }) => ($isBrand ? '1.5rem' : '1rem')};
   font-weight: ${({ $isBrand }) => ($isBrand ? 'bold' : 'normal')};
@@ -34,7 +34,7 @@ const StyledHeading = styled.a`
     position: absolute;
     left: 0;
     bottom: -2px;
-    width: ${({ $isActive }) => ($isActive ? '100%' : '0')};
+    width: 0;
     height: 2px;
     background-color: #F1F1F1;
     transition: width 0.3s ease;
@@ -53,9 +53,6 @@ const NavLinks = styled.div`
     gap: 2rem;
   }
 `;
-
-
-
 
 const Sidebar = styled.div`
   position: fixed;
@@ -120,9 +117,9 @@ const SidebarLinks = styled.nav`
       content: '';
       position: absolute;
       left: 0;
-      bottom: -2px; 
-      width: ${({ $isActive }) => ($isActive ? '100%' : '0')};
-      height: 2px; 
+      bottom: -2px;
+      width: 0;
+      height: 2px;
       background-color: #F1F1F1;
       transition: width 0.3s ease;
     }
@@ -140,7 +137,6 @@ const SidebarLinks = styled.nav`
 export default function Navigation() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const checkMobile = () => {
@@ -163,49 +159,17 @@ export default function Navigation() {
     setIsSidebarOpen(false);
   };
 
-  const handleActiveSection = (section) => {
-    setActiveSection(section);
-    closeSidebar();
-  }
-
   return (
     <>
       <NavbarContainer>
-      <StyledHeading
-          href="#home"
-          className='!text-2xl'
-        >
+        <StyledHeading href="#home" className='!text-2xl' onClick={closeSidebar}>
           Gianni.dev
         </StyledHeading>
         <NavLinks>
-          <StyledHeading
-            href="#about"
-            $isActive={activeSection === 'about'}
-            onClick={() => handleActiveSection('about')}
-          >
-            About
-          </StyledHeading>
-          <StyledHeading
-            href="#projects"
-            $isActive={activeSection === 'projects'}
-            onClick={() => handleActiveSection('projects')}
-          >
-            Projects
-          </StyledHeading>
-          <StyledHeading
-            href="#calendly"
-            $isActive={activeSection === 'calendly'}
-            onClick={() => handleActiveSection('calendly')}
-          >
-            Book an appointment
-          </StyledHeading>
-          <StyledHeading
-            href="#contact"
-            $isActive={activeSection === 'contact'}
-            onClick={() => handleActiveSection('contact')}
-          >
-            Contact
-          </StyledHeading>
+          <StyledHeading href="#about">About</StyledHeading>
+          <StyledHeading href="#projects">Projects</StyledHeading>
+          <StyledHeading href="#calendly">Book an appointment</StyledHeading>
+          <StyledHeading href="#contact">Contact</StyledHeading>
         </NavLinks>
         {isMobile && (
           <AnimatedHamburger isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
@@ -221,27 +185,9 @@ export default function Navigation() {
               <AiOutlineClose />
             </CloseButton>
             <SidebarLinks>
-              <StyledHeading
-                href="#about"
-                $isActive={activeSection === 'about'}
-                onClick={() => handleActiveSection('about')}
-              >
-                About
-              </StyledHeading>
-              <StyledHeading
-                href="#projects"
-                $isActive={activeSection === 'projects'}
-                onClick={() => handleActiveSection('projects')}
-              >
-                Projects
-              </StyledHeading>
-              <StyledHeading
-                href="#contact"
-                $isActive={activeSection === 'contact'}
-                onClick={() => handleActiveSection('contact')}
-              >
-                Contact
-              </StyledHeading>
+              <StyledHeading href="#about" onClick={closeSidebar}>About</StyledHeading>
+              <StyledHeading href="#projects" onClick={closeSidebar}>Projects</StyledHeading>
+              <StyledHeading href="#contact" onClick={closeSidebar}>Contact</StyledHeading>
             </SidebarLinks>
           </Sidebar>
         </>
