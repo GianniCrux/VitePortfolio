@@ -30,7 +30,7 @@ export default function AboutMe() {
     { Icon: FaPython, name: 'Python' },
     { Icon: SiPrisma, name: 'Prisma' },
     { Icon: FaCloud, name: 'Convex' },
-    { Icon: FaCube, name: 'React Three Fiber' },
+    { Icon: FaCube, name: 'R3F' },
     { Icon: GiCubes, name: 'Three.js' },
   ];
 
@@ -101,7 +101,6 @@ export default function AboutMe() {
         </div>
         
         <div className="mt-16">
-          <h3 className="text-2xl md:text-3xl text-black tracking-tighter text-center font-playfair mb-8">Technologies i work with</h3>
           <div 
             className="overflow-hidden bg-yellow-100 bg-opacity-50 rounded-lg p-4"
             onMouseDown={startDragging}
@@ -109,6 +108,7 @@ export default function AboutMe() {
             onMouseLeave={stopDragging}
             onMouseMove={onDrag}
           >
+            <h3 className="text-2xl md:text-3xl text-black tracking-tighter text-center font-playfair mb-4">Technologies i work with</h3>
             <div 
               ref={carouselRef}
               className="flex overflow-x-hidden"
