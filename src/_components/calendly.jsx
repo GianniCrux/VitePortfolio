@@ -23,7 +23,6 @@ export const Calendly = () => {
 
     return (
         <div
-            id="calendly"
             className="flex items-center justify-center bg-black py-4 min-h-screen font-lora"
             style={{ position: 'relative', zIndex: 0 }}
         >
