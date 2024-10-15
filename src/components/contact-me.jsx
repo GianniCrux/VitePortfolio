@@ -1,8 +1,24 @@
 import emailjs from 'emailjs-com';
 import { Mail, MessageSquare, User } from 'lucide-react';
 import { toast, Toaster } from 'sonner';
+import { Calendly } from '../_components/calendly';
+import { useEffect, useState } from 'react';
 
 const ContactMe = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 568);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -48,7 +64,13 @@ const ContactMe = () => {
   };
 
   return (
-    <section id='contact' className="py-16 bg-amber-300 text-black h-screen flex items-center font-sans">
+    <>
+    <div id="contact">
+    {!isMobile && (
+      <Calendly />
+      )}
+      </div>
+    <section className="py-16 bg-amber-300 text-black h-screen flex items-center font-sans">
       <Toaster />
       <div className="container mx-auto px-4 max-w-4xl">
         <h2 className="text-3xl font-bold mb-8 text-center font-lora">Get in Touch</h2>
@@ -133,6 +155,7 @@ const ContactMe = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
