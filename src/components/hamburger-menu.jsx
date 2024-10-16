@@ -168,7 +168,6 @@ export default function Navigation() {
         <NavLinks>
           <StyledHeading href="#about">About</StyledHeading>
           <StyledHeading href="#projects">Projects</StyledHeading>
-          <StyledHeading href="#calendly">Book an appointment</StyledHeading>
           <StyledHeading href="#contact">Contact</StyledHeading>
         </NavLinks>
         {isMobile && (
