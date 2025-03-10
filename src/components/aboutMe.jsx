@@ -3,6 +3,9 @@ import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs, FaPython, FaCloud, FaCube } f
 import { SiNextdotjs, SiTailwindcss, SiTypescript, SiRedux, SiPrisma } from 'react-icons/si';
 import { GiCubes } from 'react-icons/gi';
 import { useRef, useEffect, useState } from 'react';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+import '@splidejs/splide/dist/css/splide.min.css';
 
 const TechIcon = ({ Icon, name }) => (
   <div className="flex flex-col items-center p-2 w-20 flex-shrink-0">
@@ -34,54 +37,19 @@ export default function AboutMe() {
     { Icon: GiCubes, name: 'Three.js' },
   ];
 
-  const carouselRef = useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
+  const splideRef = useRef(null);
 
-  const startDragging = (e) => {
-    setIsDragging(true);
-    setStartX(e.pageX - carouselRef.current.offsetLeft);
-    setScrollLeft(carouselRef.current.scrollLeft);
-  };
-
-  const stopDragging = () => {
-    setIsDragging(false);
-  };
-
-  const onDrag = (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX) * 1;
-    carouselRef.current.scrollLeft = scrollLeft - walk;
-  };
 
   useEffect(() => {
-    const carousel = carouselRef.current;
-    let scrollInterval;
-
-    const startAutoScroll = () => {
-      scrollInterval = setInterval(() => {
-        carousel.scrollLeft += 1;
-        if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
-          carousel.scrollLeft = 0;
-        }
-      }, 15); 
-    };
-
-    startAutoScroll();
-
-    const stopAutoScroll = () => clearInterval(scrollInterval);
-
-    carousel.addEventListener('mouseenter', stopAutoScroll);
-    carousel.addEventListener('mouseleave', startAutoScroll);
+    if (splideRef.current) {
+      const splideInstance = splideRef.current.splide;
 
     return () => {
-      clearInterval(scrollInterval);
-      carousel.removeEventListener('mouseenter', stopAutoScroll);
-      carousel.removeEventListener('mouseleave', startAutoScroll);
-    };
+      if (splideInstance) {
+        splideInstance.destroy();
+      }
+    }
+  }
   }, []);
 
 
@@ -103,20 +71,39 @@ export default function AboutMe() {
         <div className="mt-16">
           <div 
             className="overflow-hidden bg-yellow-100 bg-opacity-50 rounded-lg p-4"
-            onMouseDown={startDragging}
-            onMouseUp={stopDragging}
-            onMouseLeave={stopDragging}
-            onMouseMove={onDrag}
           >
             <h3 className="text-2xl md:text-3xl text-black tracking-tighter text-center font-playfair mb-4">Technologies i work with</h3>
-            <div 
-              ref={carouselRef}
-              className="flex overflow-x-hidden"
+            <Splide 
+              ref={splideRef}
+              options={{
+                type       : 'loop',
+                drag       : 'free',
+                loop       : true,
+                perPage    : 5,
+                perMove    : 1,
+                gap        : '0.5rem',
+                pauseOnHover: true,
+                pauseOnFocus: true,
+                pagination: false,
+                arrows: false,
+                height: 'auto',
+                direction: 'ltr',
+                fixedWidth: '80px',
+                trimSpace: false,
+                autoScroll: {
+                  speed: 1,
+                  pauseOnHover: true,
+                  pauseOnFocus: true,
+                }
+              }}
+              extensions={{ AutoScroll }}
             >
-              {[...technologies, ...technologies, ...technologies, ...technologies, ...technologies, ...technologies, ...technologies, ...technologies, ...technologies, ...technologies].map((tech, index) => (
-                <TechIcon key={index} Icon={tech.Icon} name={tech.name} />
-              ))}
-            </div>
+                {technologies.map((tech, index) => (
+                  <SplideSlide>
+                    <TechIcon key={index} Icon={tech.Icon} name={tech.name} />
+                  </SplideSlide>
+                ))}
+            </Splide>
           </div>
         </div>
       </div>
