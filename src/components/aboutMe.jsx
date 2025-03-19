@@ -72,7 +72,7 @@ export default function AboutMe() {
           <div 
             className="overflow-hidden bg-yellow-100 bg-opacity-50 rounded-lg p-4"
           >
-            <h3 className="text-2xl md:text-3xl text-black tracking-tighter text-center font-playfair mb-4">Technologies i work with</h3>
+            <h3 className="text-2xl md:text-3xl text-black tracking-tighter text-center font-playfair mb-4">Technologies I work with</h3>
             <Splide 
               ref={splideRef}
               options={{
