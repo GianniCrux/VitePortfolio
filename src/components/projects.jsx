@@ -21,15 +21,15 @@ password: 12345678`
     width:"w-[100%]",
     link: 'https://floatinglemons.vercel.app/',
   },
-/*   {
+  {
     title: 'GPlanner',
     description: 'GPlanner is an advanced plan scheduling application designed with React, Next.js, and Tailwind CSS. It offers an interactive calendar experience using "react-big-calendar". The app integrates "clerk-react" for seamless authentication while data management and serverless data operations are supported by Convex. The setup includes robust support for development, building, and linting  to ensure a seamless development experience.',
     previewImage: '/plannerLogo.svg',
     imageUrl: '/gplanner-screen.png',
     width:"w-[50%]",
-    link: 'https://project2.com',
+    link: 'https://g-planner.vercel.app/',
   },
-  {
+/*  {
     title: 'Highwaytodev',
     description: 'Cars dodging mini-game',
     previewImage: '/highway-screen.png',
